@@ -114,6 +114,6 @@
 			}
 		]
 	},
-	"include": ["src", "**/*.ts"],
+	"include": ["src", "**/*.ts", "**/*.tsx", "*.config.mjs"],
 	"exclude": ["node_modules"]
 }
