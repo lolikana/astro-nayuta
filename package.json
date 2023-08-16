@@ -1,22 +1,25 @@
 {
-  "name": "astro-nayuta",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && tsc --noEmit && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/react": "^2.2.2",
-    "@astrojs/ts-plugin": "^1.1.1",
-    "astro": "^2.10.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "sass": "^1.65.1"
-  }
+	"name": "astro-nayuta",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro check && tsc --noEmit && astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"format": "prettier --write . --plugin=prettier-plugin-astro"
+	},
+	"dependencies": {
+		"@astrojs/react": "^2.2.2",
+		"@astrojs/ts-plugin": "^1.1.1",
+		"astro": "^2.10.9",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"prettier": "^3.0.2",
+		"prettier-plugin-astro": "^0.11.1",
+		"sass": "^1.65.1"
+	}
 }
