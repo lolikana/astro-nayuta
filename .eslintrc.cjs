@@ -1,7 +1,7 @@
 module.exports = {
 	ignorePatterns: ['*.d.ts'],
 	env: { browser: true, node: true, es2021: true },
-	extends: ['plugin:astro/recommended', 'eslint:recommended', 'plugin:import/typescript'],
+	extends: ['eslint:recommended', 'plugin:import/typescript'],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
@@ -29,7 +29,12 @@ module.exports = {
 	overrides: [
 		{
 			// Define the configuration for `.astro` file.
-			files: ['*.astro'],
+			files: ['**/*.astro'],
+			plugins: ['plugin:astro/recommended'],
+			env: {
+				// Enables global variables available in Astro components.
+				'astro/astro': true
+			},
 			// Allows Astro components to be parsed.
 			parser: 'astro-eslint-parser',
 			// Parse the script in `.astro` as TypeScript by adding the following configuration.
