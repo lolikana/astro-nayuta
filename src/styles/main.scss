@@ -1,1 +1,44 @@
+@import './utils/variables';
+@import './utils/mixins';
+
 @import './reset';
+@import './colors';
+
+body {
+	font-family:
+		'Noto Sans JP',
+		system-ui,
+		-apple-system,
+		BlinkMacSystemFont,
+		'Segoe UI',
+		Roboto,
+		Oxygen,
+		Ubuntu,
+		Cantarell,
+		'Open Sans',
+		'Helvetica Neue',
+		sans-serif;
+
+	color: $__main;
+	font-size: 1rem;
+	line-height: 24px;
+	letter-spacing: 0.1em;
+
+	min-width: 375px;
+	max-width: 1366px;
+	padding-inline: 9.3%;
+	margin: 0 auto;
+
+	@include mq(md) {
+		padding-inline: 10.9%;
+	}
+}
+
+.big-title {
+	font-size: 1.5rem;
+	line-height: 35px;
+}
+
+.small-title {
+	font-size: 1.125rem;
+}
