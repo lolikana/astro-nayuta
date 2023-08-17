@@ -1,0 +1,29 @@
+---
+
+---
+
+<header class="header">
+	<div class="header__logo">
+		<img src="/logo/nayuta__logo.svg" alt="logo nayuta" />
+	</div>
+</header>
+
+<style lang="scss">
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+
+	.header {
+		width: $__full__width;
+		@extend %flex-center;
+		padding-top: 1rem;
+
+		@include mq(md) {
+			display: inherit;
+		}
+	}
+
+	.header__logo {
+		width: 60px;
+		height: 26px;
+	}
+</style>
