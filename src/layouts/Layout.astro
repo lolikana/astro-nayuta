@@ -1,0 +1,28 @@
+---
+import '@styles/main.scss';
+
+type Props = {
+	headTitle: string;
+};
+
+const { headTitle } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{headTitle}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
