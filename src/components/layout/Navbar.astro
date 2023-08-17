@@ -1,0 +1,41 @@
+---
+
+---
+
+<nav class="nav">
+	<ul class="nav__list">
+		<li class="nav__list_item"><a class="link-border" href="/">Home</a></li>
+		<li class="nav__list_item">
+			<a class="link-border" href="/restaurants">Restauran&Cafe</a>
+		</li>
+		<li class="nav__list_item">
+			<a class="link-border" href="/facilities">Shop&Facilities</a>
+		</li>
+		<li class="nav__list_item"><a class="link-border" href="/Contact">Contact</a></li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+
+	.nav {
+		@include mq(md) {
+			font-size: 0.875rem;
+		}
+	}
+	.nav__list {
+		display: flex;
+		justify-content: space-between;
+
+		@include mq(md) {
+			gap: 35px;
+		}
+	}
+
+	@include mq(md) {
+		.nav__list_item > a {
+			padding: 13px 10px;
+		}
+	}
+</style>

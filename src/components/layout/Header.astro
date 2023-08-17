@@ -1,10 +1,15 @@
 ---
-
+import Navbar from './Navbar.astro';
 ---
 
 <header class="header">
 	<div class="header__logo">
-		<img src="/logo/nayuta__logo.svg" alt="logo nayuta" />
+		<a href="/">
+			<img src="/logo/nayuta__logo.svg" alt="logo nayuta" />
+		</a>
+	</div>
+	<div class="header__nav">
+		<Navbar />
 	</div>
 </header>
 
@@ -14,16 +19,41 @@
 
 	.header {
 		width: $__full__width;
+		height: 100px;
+
 		@extend %flex-center;
-		padding-top: 1rem;
+		flex-direction: column;
+		gap: 33px;
 
 		@include mq(md) {
-			display: inherit;
+			height: 160px;
+
+			flex-direction: row;
+			justify-content: space-between;
+			padding-top: 0;
+		}
+	}
+	.header__logo {
+		img {
+			width: 60px;
+			height: 26px;
+		}
+	}
+	.header__nav {
+		width: $__full__width;
+		padding: 0 5%;
+		@include mq(sm) {
+			padding: 0 $__mobile__padding;
 		}
 	}
 
-	.header__logo {
-		width: 60px;
-		height: 26px;
+	@include mq(md) {
+		.header__logo {
+			padding-left: $__desktop__padding;
+		}
+		.header__nav {
+			width: fit-content;
+			padding: 0 48px 0 0;
+		}
 	}
 </style>

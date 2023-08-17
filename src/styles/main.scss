@@ -4,6 +4,11 @@
 @import './reset';
 @import './colors';
 
+html {
+	min-width: 375px;
+	max-width: 1366px;
+}
+
 body {
 	font-family:
 		'Noto Sans JP',
@@ -20,17 +25,21 @@ body {
 		sans-serif;
 
 	color: $__main;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	line-height: 24px;
 	letter-spacing: 0.1em;
 
-	min-width: 375px;
-	max-width: 1366px;
-	padding-inline: 9.3%;
+	@include mq(md) {
+		font-size: 1rem;
+	}
+}
+
+main {
+	padding-inline: $__mobile__padding;
 	margin: 0 auto;
 
 	@include mq(md) {
-		padding-inline: 10.9%;
+		padding-inline: $__desktop__padding;
 	}
 }
 
@@ -41,4 +50,14 @@ body {
 
 .small-title {
 	font-size: 1.125rem;
+}
+
+@include mq(md) {
+	.link-border {
+		transition: outline 250ms ease;
+		outline: 1px solid transparent;
+		&:hover {
+			outline: 1px solid $__primary;
+		}
+	}
 }
