@@ -31,10 +31,6 @@ module.exports = {
 			// Define the configuration for `.astro` file.
 			files: ['**/*.astro'],
 			plugins: ['plugin:astro/recommended'],
-			env: {
-				// Enables global variables available in Astro components.
-				'astro/astro': true
-			},
 			// Allows Astro components to be parsed.
 			parser: 'astro-eslint-parser',
 			// Parse the script in `.astro` as TypeScript by adding the following configuration.
