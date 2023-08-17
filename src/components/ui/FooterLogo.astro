@@ -1,0 +1,33 @@
+---
+type Props = {
+	type: 'sns' | 'maeda';
+	link: string;
+	image: string;
+	altImage: string;
+};
+
+const { type, link, image, altImage } = Astro.props;
+---
+
+<div class={`${type === 'sns' ? 'logo__sns' : 'logo__maeda'}`}>
+	<a href={link}>
+		<img src={`/logo/${image}`} alt={`logo ${altImage}`} />
+	</a>
+</div>
+
+<style lang="scss">
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+
+	.logo__sns {
+		width: 26.5px;
+		height: 26.5px;
+	}
+	.logo__maeda {
+		width: 50px;
+
+		@include mq(md) {
+			width: 72px;
+		}
+	}
+</style>

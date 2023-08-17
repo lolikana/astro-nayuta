@@ -10,6 +10,8 @@ html {
 }
 
 body {
+	position: relative;
+	height: 100vh;
 	font-family:
 		'Noto Sans JP',
 		system-ui,
@@ -50,6 +52,14 @@ main {
 
 .small-title {
 	font-size: 1.125rem;
+}
+
+.small-text {
+	font-size: 0.625rem;
+
+	@include mq(md) {
+		font-size: 0.875rem;
+	}
 }
 
 @include mq(md) {

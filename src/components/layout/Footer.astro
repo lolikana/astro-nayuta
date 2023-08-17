@@ -1,0 +1,58 @@
+---
+import FooterLogo from '@components/ui/FooterLogo.astro';
+---
+
+<footer class="footer small-text">
+	<FooterLogo
+		type="sns"
+		link={'#_blank'}
+		image={'Instagram.svg'}
+		altImage={'instagram'}
+	/>
+	<FooterLogo type="sns" link={'#_blank'} image={'Twitter.svg'} altImage={'twitter'} />
+	<div>
+		<a href="/privacy-policy">プライバシーポリシー</a>
+	</div>
+	<div>
+		<FooterLogo
+			type="maeda"
+			link={'#_blank'}
+			image={'MaedaGumi-Logo_MinchoType.svg'}
+			altImage={'Maeda-Gumi'}
+		/>
+		<p class="footer__copyright">
+			Copryright <time datetime="2022-01-01"></time> Maedagumi, Inc. All rights reserved.
+		</p>
+	</div>
+</footer>
+
+<style lang="scss">
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+
+	.footer {
+		position: absolute;
+		bottom: 30px;
+		left: $__mobile__padding;
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	@include mq(md) {
+		.footer {
+			bottom: 60px;
+			left: $__desktop__padding;
+		}
+		.footer__copyright {
+			margin-top: 20px;
+		}
+	}
+</style>
+
+<script>
+	const time = document.getElementsByTagName('time')[0] as HTMLTimeElement;
+	const date = new Date();
+	time.setAttribute('datetime', date.toISOString());
+	time.textContent = date.getFullYear().toString();
+</script>

@@ -1,6 +1,7 @@
 ---
 import '@styles/main.scss';
 
+import Footer from '@components/layout/Footer.astro';
 import Header from '@components/layout/Header.astro';
 
 type Props = {
@@ -29,8 +30,9 @@ const { headTitle } = Astro.props;
 		<main>
 			<slot />
 		</main>
+		<Footer />
+		<script>
+			import '@scripts/main.ts';
+		</script>
 	</body>
-	<script>
-		import '@scripts/main.ts';
-	</script>
 </html>
