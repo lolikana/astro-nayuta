@@ -4,13 +4,10 @@
 @import './reset';
 @import './colors';
 
-html {
-	min-width: 375px;
-	max-width: 1366px;
-}
-
 body {
 	position: relative;
+	min-width: 375px;
+	max-width: 1600px;
 	height: 100vh;
 	font-family:
 		'Noto Sans JP',
@@ -68,6 +65,25 @@ main {
 		outline: 1px solid transparent;
 		&:hover {
 			outline: 1px solid $__primary;
+		}
+	}
+
+	.link-underline {
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: $__primary;
+			scale: 0 0;
+			transition: scale 250ms ease;
+		}
+
+		&:hover::after {
+			scale: 1 1;
 		}
 	}
 }

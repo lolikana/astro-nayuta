@@ -28,13 +28,12 @@
 	.nav__list {
 		display: flex;
 		justify-content: space-between;
-
-		@include mq(md) {
-			gap: 35px;
-		}
 	}
 
 	@include mq(md) {
+		.nav__list {
+			gap: 35px;
+		}
 		.nav__list_item > a {
 			padding: 13px 10px;
 		}
