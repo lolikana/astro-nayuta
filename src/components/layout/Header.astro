@@ -19,10 +19,11 @@ import Navbar from './Navbar.astro';
 
 	.header {
 		z-index: 1000;
+		position: relative;
 		width: $__full__width;
 		height: $__mobile__headerHeight;
 		padding-top: 1rem;
-		margin-bottom: 65px;
+		margin-bottom: $__header__paddingBottom;
 
 		background: linear-gradient(
 			180deg,
@@ -46,10 +47,13 @@ import Navbar from './Navbar.astro';
 
 	.header__nav {
 		width: $__full__width;
-		padding: 20.5px 5%;
+		height: 65px;
+		padding: 0 5%;
+		display: flex;
+		align-items: center;
 
 		@include mq(sm) {
-			padding: 20.5px $__mobile__padding;
+			padding: 0 $__mobile__padding;
 		}
 
 		@include mq(md) {
@@ -70,6 +74,7 @@ import Navbar from './Navbar.astro';
 
 		@include mq(md) {
 			position: inherit;
+			background: transparent;
 		}
 	}
 

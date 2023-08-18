@@ -31,9 +31,7 @@ import FooterLogo from '@components/ui/FooterLogo.astro';
 	@import '@styles/utils/mixins';
 
 	.footer {
-		position: absolute;
-		bottom: 30px;
-		left: $__mobile__padding;
+		padding: 150px 0 30px $__mobile__padding;
 		display: flex;
 		flex-direction: column;
 		gap: 50px;
@@ -41,8 +39,7 @@ import FooterLogo from '@components/ui/FooterLogo.astro';
 
 	@include mq(md) {
 		.footer {
-			bottom: 60px;
-			left: $__desktop__padding;
+			padding: 200px 0 60px $__desktop__padding;
 		}
 		.footer__copyright {
 			margin-top: 20px;

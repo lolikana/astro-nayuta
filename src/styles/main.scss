@@ -4,11 +4,18 @@
 @import './reset';
 @import './colors';
 
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	position: relative;
 	min-width: 375px;
 	max-width: 1600px;
-	height: 100vh;
+	overflow-x: hidden;
+	margin: 0 auto;
 	font-family:
 		'Noto Sans JP',
 		system-ui,

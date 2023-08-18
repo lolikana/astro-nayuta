@@ -2,9 +2,19 @@
 
 ---
 
-<section class="section-top">
-	<div>
-		<h1 class="title"><span>Nayuta</span><span>“素朴”を届ける空間</span></h1>
+<section class="section">
+	<div class="section__title">
+		<h1 class="section__title_text">
+			<span>Nayuta</span><span>“素朴”を届ける空間</span>
+		</h1>
+	</div>
+	<div class="section__image">
+		<img
+			class="section__image_img"
+			src="/images/homepage/main_image.webp"
+			alt="Home page image of nature"
+		/>
+		<div class="section__image_scroll small-text"></div>
 	</div>
 </section>
 
@@ -13,35 +23,100 @@
 	@import '@styles/utils/variables';
 	@import '@styles/utils/mixins';
 
-	.section-top {
-		margin-top: 65px;
-	}
-	.title {
-		font-size: 1rem;
+	.section {
+		height: calc(100vh - ($__mobile__headerHeight + $__header__paddingBottom));
 		display: flex;
 		flex-direction: column;
-		gap: 40px;
+		justify-content: space-between;
 
 		@include mq(md) {
-			flex-direction: row;
-			gap: 0;
+			height: calc(100vh - ($__desktop__headerHeight + $__header__paddingBottom));
+		}
+	}
 
-			span {
-				flex: 1;
-			}
+	.section__title {
+		&_text {
+			font-size: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
 
-			span:nth-child(1) {
-				display: flex;
-				align-items: center;
+			@include mq(md) {
+				flex-direction: row;
+				gap: 0;
 
-				&::after {
-					content: '';
-					margin: 0 auto;
-					width: 70%;
-					height: 1px;
-					background-color: $__primary;
+				span {
+					flex: 1;
+				}
+
+				span:nth-child(1) {
+					display: flex;
+					align-items: center;
+
+					&::after {
+						content: '';
+						margin: 0 auto;
+						width: 70%;
+						height: 1px;
+						background-color: $__primary;
+					}
 				}
 			}
+		}
+	}
+
+	.section__image {
+		position: relative;
+		margin: 0 calc(50% - 50vw);
+		flex: 1;
+		&_img {
+			position: absolute;
+			min-height: 30vh;
+			max-height: 50vh;
+			object-fit: cover;
+			bottom: 25%;
+		}
+
+		&_scroll {
+			position: absolute;
+			left: 50%;
+			bottom: 5%;
+			&::after {
+				content: 'scroll';
+			}
+			&::before {
+				content: '';
+				position: absolute;
+				height: 50px;
+				width: 1px;
+				background-color: $__main;
+				top: -0.75rem;
+				left: -1rem;
+				animation: 2s linear infinite lineAnimation;
+			}
+		}
+	}
+
+	@keyframes lineAnimation {
+		0% {
+			transform: scaleY(0);
+			transform-origin: top;
+		}
+		25% {
+			transform: scaleY(0.75);
+			transform-origin: top;
+		}
+		35% {
+			transform: scaleY(0.75);
+			transform-origin: bottom;
+		}
+		55% {
+			transform: scaleY(0);
+			transform-origin: bottom;
+		}
+		100% {
+			transform: scaleY(0);
+			transform-origin: bottom;
 		}
 	}
 </style>
