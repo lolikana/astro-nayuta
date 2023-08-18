@@ -18,9 +18,11 @@ import Navbar from './Navbar.astro';
 	@import '@styles/utils/mixins';
 
 	.header {
+		z-index: 1000;
 		width: $__full__width;
-		height: 98px;
+		height: $__mobile__headerHeight;
 		padding-top: 1rem;
+		margin-bottom: 65px;
 
 		background: linear-gradient(
 			180deg,
@@ -65,12 +67,16 @@ import Navbar from './Navbar.astro';
 			rgba(255, 255, 255, 0.4864320728291317) 50%,
 			rgba(255, 255, 255, 0) 100%
 		);
+
+		@include mq(md) {
+			position: inherit;
+		}
 	}
 
 	@include mq(md) {
 		.header {
 			position: sticky;
-			height: 160px;
+			height: $__desktop__headerHeight;
 			top: 0;
 
 			display: flex;
