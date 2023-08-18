@@ -1,0 +1,47 @@
+---
+
+---
+
+<section class="section-top">
+	<div>
+		<h1 class="title"><span>Nayuta</span><span>“素朴”を届ける空間</span></h1>
+	</div>
+</section>
+
+<style lang="scss">
+	@import '@styles/colors';
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+
+	.section-top {
+		margin-top: 65px;
+	}
+	.title {
+		font-size: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+
+		@include mq(md) {
+			flex-direction: row;
+			gap: 0;
+
+			span {
+				flex: 1;
+			}
+
+			span:nth-child(1) {
+				display: flex;
+				align-items: center;
+
+				&::after {
+					content: '';
+					margin: 0 auto;
+					width: 70%;
+					height: 1px;
+					background-color: $__primary;
+				}
+			}
+		}
+	}
+</style>
