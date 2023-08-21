@@ -1,52 +1,84 @@
 module.exports = {
-	ignorePatterns: ['*.d.ts'],
-	env: { browser: true, node: true, es2022: true },
-	extends: ['eslint:recommended', 'plugin:import/typescript'],
-	parser: '@typescript-eslint/parser',
+	env: {
+		node: true,
+		es2022: true,
+		browser: true
+	},
+	extends: ['eslint:recommended', 'plugin:astro/recommended'],
 	parserOptions: {
 		ecmaVersion: 'latest',
-		sourceType: 'module',
-		project: './tsconfig.json'
+		sourceType: 'module'
 	},
-	plugins: ['@typescript-eslint', 'import', 'simple-import-sort'],
 	rules: {
+		'no-mixed-spaces-and-tabs': 'error',
+		'astro/no-set-html-directive': 'error',
+		'simple-import-sort/imports': 'error',
+		'simple-import-sort/exports': 'error',
 		indent: [2, 'tab', { SwitchCase: 0 }],
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { allowTemplateLiterals: true, avoidEscape: true }],
 		semi: ['error', 'always'],
-		'simple-import-sort/imports': 'error',
-		'simple-import-sort/exports': 'error',
 		'import/first': 'error',
 		'import/newline-after-import': 'error',
 		'import/no-duplicates': 'error'
 	},
 	overrides: [
-		//* Configuration for Astro *//
 		{
-			// Define the configuration for `.astro` file.
-			files: ['**/*.astro'],
-			// Allows Astro components to be parsed.
+			files: ['*.astro'],
 			parser: 'astro-eslint-parser',
-			// Parse the script in `.astro` as TypeScript by adding the following configuration.
-			// It's the setting you need when using TypeScript.
 			parserOptions: {
 				parser: '@typescript-eslint/parser',
 				extraFileExtensions: ['.astro']
 			},
-			globals: {
-				astroHTML: true
-			},
+			plugins: ['simple-import-sort']
+		},
+		{
+			files: ['*.ts'],
+			parser: '@typescript-eslint/parser',
+			extends: ['plugin:@typescript-eslint/recommended'],
 			rules: {
-				// override/add rules settings here, such as:
-				// 'astro/no-set-html-directive': 'error'
+				'@typescript-eslint/no-unused-vars': [
+					'error',
+					{ argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' }
+				],
+				'@typescript-eslint/no-non-null-assertion': 'off'
 			}
 		},
-		//* Configuration for Typescript *//
 		{
-			files: ['*.{ts,tsx,mjs}'],
-			extends: ['plugin:prettier/recommended'],
-			plugins: ['react'],
-			rules: { 'prettier/prettier': 'error' }
+			files: ['*.d.ts'],
+			rules: {
+				'@typescript-eslint/triple-slash-reference': 'off'
+			}
+		},
+		{
+			files: ['*.tsx'],
+			parser: '@typescript-eslint/parser',
+			plugins: [
+				'@typescript-eslint',
+				'react',
+				'prettier',
+				'import',
+				'simple-import-sort'
+			],
+			parserOptions: {
+				ecmaVersion: 'latest',
+				sourceType: 'module',
+				tsconfigRootDir: __dirname,
+				project: ['./tsconfig.json']
+			},
+			extends: [
+				'eslint:recommended',
+				'plugin:react/recommended',
+				'plugin:@typescript-eslint/recommended',
+				'plugin:prettier/recommended',
+				'prettier'
+			]
+		},
+		{
+			// Define the configuration for `<script>` tag.
+			// Script in `<script>` is assigned a virtual file name with the `.js` extension.
+			files: ['**/*.astro/*.js', '*.astro/*.js'],
+			parser: '@typescript-eslint/parser'
 		}
 	]
 };
