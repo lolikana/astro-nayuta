@@ -1,0 +1,8 @@
+---
+import { floorData } from './datas';
+import FloorMapItem from './FloorMapItem.astro';
+---
+
+<article>
+	{floorData.map(floor => <FloorMapItem {...floor} />)}
+</article>

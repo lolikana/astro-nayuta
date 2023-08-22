@@ -3,6 +3,7 @@
 
 @import './reset';
 @import './colors';
+@import './fonts';
 
 html,
 body {
@@ -52,27 +53,32 @@ main {
 }
 
 .big-title {
-	font-size: 1.5rem;
-	line-height: 35px;
+	font-size: $__font18;
+	line-height: 26px;
+
+	@include mq(md) {
+		font-size: $__font24;
+		line-height: 35px;
+	}
 }
 
 .small-title {
-	font-size: 1.125rem;
+	font-size: $__font18;
 }
 
 .small-text {
-	font-size: 0.625rem;
+	font-size: $__font11;
 
 	@include mq(md) {
-		font-size: 0.875rem;
+		font-size: $__font14;
 	}
 }
 
 .medium-text {
-	font-size: 0.875rem;
+	font-size: $__font14;
 
 	@include mq(md) {
-		font-size: 1rem;
+		font-size: $__font16;
 	}
 }
 

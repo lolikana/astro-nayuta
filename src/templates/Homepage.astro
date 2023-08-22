@@ -1,4 +1,5 @@
 ---
+import FloorsMapList from '@components/homepage/FloorsMapList.astro';
 import Sns from '@components/homepage/Sns.astro';
 import Top from '@components/homepage/Top.astro';
 ---
@@ -6,4 +7,19 @@ import Top from '@components/homepage/Top.astro';
 <Top />
 <section class="section-template">
 	<Sns />
+	<FloorsMapList />
 </section>
+
+<style lang="scss">
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+	.section-template {
+		display: flex;
+		flex-direction: column;
+		gap: 170px;
+
+		@include mq(md) {
+			gap: 200px;
+		}
+	}
+</style>

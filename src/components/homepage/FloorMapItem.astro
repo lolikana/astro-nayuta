@@ -1,0 +1,54 @@
+---
+import FloorMapDetailItem from './FloorMapDetailItem.astro';
+import type { TFloorMapData } from './types';
+
+const { floor, details } = Astro.props as TFloorMapData;
+---
+
+<div class="floor">
+	<h2 class="floor__title big-title">{floor}</h2>
+	<div class="floor__wrapper">
+		<div class="floor__wrapper_image">
+			<img src=`/images/homepage/${floor}_floor.svg` alt="" />
+		</div>
+		<ul class="floor__wrapper_list">
+			<FloorMapDetailItem details={details} />
+		</ul>
+	</div>
+</div>
+
+<style lang="scss">
+	@import '@styles/utils/variables';
+	@import '@styles/utils/mixins';
+
+	.floor__title {
+		margin-bottom: 32px;
+		font-weight: $__medium;
+	}
+
+	.floor__wrapper_image {
+		margin-bottom: 75px;
+	}
+
+	.floor__wrapper_list {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	@include mq(md) {
+		.floor__wrapper {
+			display: flex;
+			gap: 8%;
+		}
+
+		.floor__wrapper_image,
+		.floor__wrapper_list {
+			flex: 1;
+		}
+
+		.floor__wrapper_list {
+			gap: 70px;
+		}
+	}
+</style>
