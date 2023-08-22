@@ -12,12 +12,7 @@ const { floor, details, additional } = Astro.props as TFloorMapData;
 			<img src=`/images/homepage/${floor}_floor.svg` alt="" />
 		</div>
 		<ul class="floor__wrapper_list">
-			<FloorMapDetailItem details={details} />
-			{
-				additional ? (
-					<li class="floor__wrapper_additional small-text">{additional}</li>
-				) : null
-			}
+			<FloorMapDetailItem details={details} additional={additional} />
 		</ul>
 	</div>
 </div>
@@ -70,10 +65,6 @@ const { floor, details, additional } = Astro.props as TFloorMapData;
 
 		.floor__wrapper_list {
 			gap: 70px;
-		}
-
-		.floor__wrapper_additional {
-			font-size: $__font12;
 		}
 	}
 </style>

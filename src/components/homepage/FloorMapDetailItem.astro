@@ -1,7 +1,7 @@
 ---
 import type { TFloorMapData } from './types';
 
-const { details } = Astro.props as TFloorMapData;
+const { details, additional } = Astro.props as TFloorMapData;
 ---
 
 {
@@ -21,6 +21,7 @@ const { details } = Astro.props as TFloorMapData;
 		</li>
 	))
 }
+{additional ? <li class="additional_text small-text">{additional}</li> : null}
 
 <style lang="scss">
 	@import '@styles/colors';
@@ -78,11 +79,19 @@ const { details } = Astro.props as TFloorMapData;
 		height: 25px;
 	}
 
+	.additional_text {
+		padding-right: 2rem;
+	}
+
 	@include mq(md) {
 		.detail {
-			max-width: 425px;
 			height: 43px;
 			gap: 2%;
+		}
+
+		.detail,
+		.additional_text {
+			max-width: 425px;
 		}
 
 		.detail__number {
@@ -112,6 +121,11 @@ const { details } = Astro.props as TFloorMapData;
 
 		.detail__arrow {
 			right: 0;
+		}
+
+		.additional_text {
+			font-size: $__font12;
+			padding-right: 1rem;
 		}
 	}
 </style>
