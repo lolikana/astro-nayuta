@@ -15,7 +15,10 @@ body {
 	position: relative;
 	min-width: 375px;
 	max-width: 1600px;
-	overflow-x: hidden;
+	@include mq(custom375) {
+		overflow-x: hidden;
+	}
+	overflow-x: visible;
 	margin: 0 auto;
 	font-family:
 		'Noto Sans JP',
