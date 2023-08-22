@@ -20,6 +20,11 @@ import BusinessWeek from './BusinessWeek.astro';
 			</li>
 		</ul>
 	</div>
+	<img
+		class="access__map"
+		src="/images/homepage/AccessMap__Desktop.svg"
+		alt="access map to nayuta"
+	/>
 </article>
 
 <style lang="scss">
@@ -44,6 +49,10 @@ import BusinessWeek from './BusinessWeek.astro';
 		gap: 15px;
 	}
 
+	.access__map {
+		margin-top: 30px;
+	}
+
 	@include mq(md) {
 		.access__wrapper {
 			display: flex;
@@ -52,6 +61,11 @@ import BusinessWeek from './BusinessWeek.astro';
 		.access__wrapper_title,
 		.access__wrapper_list {
 			flex: 1;
+		}
+
+		.access__map {
+			max-width: 850px;
+			margin: 100px auto 0 auto;
 		}
 	}
 </style>
