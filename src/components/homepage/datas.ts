@@ -1,4 +1,19 @@
-import type { TFloorMapData } from './types';
+import type { TFloorMapData, TSnsData } from './types';
+
+export const snsData: TSnsData[] = [
+	{
+		text: 'twitter',
+		link: '#_blank',
+		image: 'Twitter.svg',
+		imageAlt: 'twitter'
+	},
+	{
+		text: 'instagram',
+		link: '#_blank',
+		image: 'Instagram.svg',
+		imageAlt: 'instagram'
+	}
+];
 
 export const floorData: TFloorMapData[] = [
 	{
