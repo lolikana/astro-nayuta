@@ -20,7 +20,7 @@ const { floor, details, additional } = Astro.props as TFloorMapData;
 <style lang="scss">
 	@import '@styles/config';
 
-	.floor {
+	.floor:not(:last-child) {
 		margin-bottom: 100px;
 	}
 
@@ -40,7 +40,7 @@ const { floor, details, additional } = Astro.props as TFloorMapData;
 	}
 
 	@include mq(md) {
-		.floor {
+		.floor:not(:last-child) {
 			margin-bottom: 130px;
 		}
 

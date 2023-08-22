@@ -13,3 +13,13 @@ export type TFloorMapData = {
 	}[];
 	additional?: string;
 };
+
+export type TAccessData = {
+	icon: 'car' | 'walk_man';
+	text: string;
+};
+
+export type TBusinessWeekData = {
+	day: '月' | '火' | '水' | '木' | '金' | '土' | '日';
+	text: string[];
+};

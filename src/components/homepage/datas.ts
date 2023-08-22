@@ -1,4 +1,4 @@
-import type { TFloorMapData, TSnsData } from './types';
+import type { TAccessData, TBusinessWeekData, TFloorMapData, TSnsData } from './types';
 
 export const snsData: TSnsData[] = [
 	{
@@ -117,5 +117,47 @@ export const floorData: TFloorMapData[] = [
 				}
 			}
 		]
+	}
+];
+
+export const accessData: TAccessData[] = [
+	{
+		icon: 'car',
+		text: '九州自動車道 福岡ICより 飯塚市方面へ10分。篠栗北交差点を左折。 \n駐車場有'
+	},
+	{
+		icon: 'walk_man',
+		text: '久山町 町営イコバス 「久山温泉前」停留所より徒歩1分'
+	}
+];
+
+export const BusinessWeekData: TBusinessWeekData[] = [
+	{
+		day: '月',
+		text: ['全館営業']
+	},
+	{
+		day: '火',
+		text: ['玄米おにぎり ひとやすみ 定休日']
+	},
+	{
+		day: '水',
+		text: ['Vegan Restauran Sui 定休日', 'flower place gift 定休日']
+	},
+	{
+		day: '木',
+		text: ['全館営業']
+	},
+	{
+		day: '金',
+		text: ['全館営業']
+	},
+	{
+		day: '土',
+		text: ['全館営業']
+	},
+	{
+		day: '日',
+		text: ['全館営業']
 	}
 ];

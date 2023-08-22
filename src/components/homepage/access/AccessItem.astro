@@ -1,0 +1,20 @@
+---
+import type { TAccessData } from '../types';
+
+const { icon, text } = Astro.props as TAccessData;
+---
+
+<li>
+	<img src=`/icons/${icon}__icon.svg` alt={`${icon}'s icon'`} class="access__item_icon" />
+	<p class="access__item_text">{text}</p>
+</li>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.access__item_icon {
+		width: 45px;
+		max-height: 35px;
+		margin-bottom: 10px;
+	}
+</style>

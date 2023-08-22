@@ -1,0 +1,57 @@
+---
+import { accessData } from './../datas';
+import AccessItem from './AccessItem.astro';
+import Address from './Address.astro';
+import BusinessHours from './BusinessHours.astro';
+import BusinessWeek from './BusinessWeek.astro';
+---
+
+<article class="access">
+	<div class="access__wrapper">
+		<h2 class="access__wrapper_title big-title">アクセス</h2>
+		<ul class="access__wrapper_list medium-text">
+			{accessData.map(item => <AccessItem icon={item.icon} text={item.text} />)}
+			<li>
+				<ul class="access__wrapper_nestedList">
+					<Address />
+					<BusinessHours />
+					<BusinessWeek />
+				</ul>
+			</li>
+		</ul>
+	</div>
+</article>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.access__wrapper_title {
+		margin-bottom: 75px;
+	}
+
+	.access__wrapper_list,
+	.access__wrapper_nestedList {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.access__wrapper_list {
+		gap: 32px;
+	}
+
+	.access__wrapper_nestedList {
+		line-height: 2rem;
+		gap: 15px;
+	}
+
+	@include mq(md) {
+		.access__wrapper {
+			display: flex;
+		}
+
+		.access__wrapper_title,
+		.access__wrapper_list {
+			flex: 1;
+		}
+	}
+</style>

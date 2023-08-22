@@ -1,0 +1,32 @@
+---
+
+---
+
+<li>
+	<address class="address">
+		〒 811-2501
+		<br />
+		<div class="address__address">
+			<span>福岡県糟屋郡久山町大字久原1822</span>
+			<a class="google-map" href="">Google Map</a>
+		</div>
+		<span>Tel <a href="tel:+8192-410-3309">092-410-3309</a></span>
+	</address>
+</li>
+
+<style lang="scss">
+	@import '@styles/config';
+	.address {
+		font-style: normal;
+	}
+
+	.address__address {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 2rem;
+	}
+	.google-map {
+		display: inline-block;
+		color: $__link_blue;
+	}
+</style>
