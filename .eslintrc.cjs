@@ -20,7 +20,9 @@ module.exports = {
 		semi: ['error', 'always'],
 		'import/first': 'error',
 		'import/newline-after-import': 'error',
-		'import/no-duplicates': 'error'
+		'import/no-duplicates': 'error',
+		'no-empty-function': 'off',
+		'@typescript-eslint/no-empty-function': 'off'
 	},
 	overrides: [
 		{
@@ -35,13 +37,24 @@ module.exports = {
 		{
 			files: ['*.ts'],
 			parser: '@typescript-eslint/parser',
-			extends: ['plugin:@typescript-eslint/recommended'],
+			parserOptions: {
+				ecmaVersion: 'latest',
+				sourceType: 'module',
+				tsconfigRootDir: __dirname,
+				project: ['./tsconfig.json']
+			},
+			extends: [
+				'plugin:@typescript-eslint/recommended',
+				'plugin:@typescript-eslint/recommended-requiring-type-checking'
+			],
 			rules: {
 				'@typescript-eslint/no-unused-vars': [
 					'error',
 					{ argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' }
 				],
-				'@typescript-eslint/no-non-null-assertion': 'off'
+				'@typescript-eslint/no-non-null-assertion': 'off',
+				'require-await': 'off',
+				'@typescript-eslint/require-await': 'warn'
 			}
 		},
 		{
@@ -56,6 +69,7 @@ module.exports = {
 			plugins: [
 				'@typescript-eslint',
 				'react',
+				'react-hooks',
 				'prettier',
 				'import',
 				'simple-import-sort'
@@ -69,10 +83,22 @@ module.exports = {
 			extends: [
 				'eslint:recommended',
 				'plugin:react/recommended',
+				'plugin:react-hooks/recommended',
 				'plugin:@typescript-eslint/recommended',
 				'plugin:prettier/recommended',
 				'prettier'
-			]
+			],
+			rules: {
+				'react-hooks/rules-of-hooks': 'error',
+				'react/react-in-jsx-scope': 'off',
+				'react/jsx-uses-react': 'off',
+				'react/jsx-filename-extension': [
+					1,
+					{ extensions: ['.js', '.jsx', '.ts', '.tsx'] }
+				],
+				'require-await': 'off',
+				'@typescript-eslint/require-await': 'warn'
+			}
 		},
 		{
 			// Define the configuration for `<script>` tag.
