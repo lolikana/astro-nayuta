@@ -52,6 +52,7 @@ main {
 
 	@include mq(md) {
 		padding-inline: $__desktop__padding;
+		margin-top: calc($__desktop__headerHeight + $__header__paddingBottom);
 	}
 }
 
