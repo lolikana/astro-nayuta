@@ -68,6 +68,8 @@
 		position: relative;
 		margin: 0 calc(50% - 50vw);
 		flex: 1;
+
+		animation: 3s linear forwards opacityAnimation;
 		&_img {
 			position: absolute;
 			min-height: 30vh;
@@ -117,6 +119,15 @@
 		100% {
 			transform: scaleY(0);
 			transform-origin: bottom;
+		}
+	}
+
+	@keyframes opacityAnimation {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 </style>
