@@ -1,0 +1,34 @@
+---
+import HPArticleWrapper from '@components/ui/HPArticleWrapper.astro';
+
+const CautioData = [
+	'オールキャッシュレスとなります(現金は使用できません)。',
+	'入館時はなるべくマスクをお外しください。',
+	'アルコール類の提供はございません。',
+	'敷地内全面禁煙となっております。',
+	'当施設のフードはハラル認証は受けておりませんが、ムスリムフレンドリーとなっております。ただし、材料に味噌、醤油、料理酒等を使用したものはございます。',
+	'営業時間や定休日については、大浴場&サウナオープン以降は変更が発生する見込みです。'
+];
+---
+
+<article class="article">
+	<HPArticleWrapper title="当館のご利用について">
+		<ul class="article__wrapper_list medium-text">
+			{CautioData.map(item => <li>{item}</li>)}
+		</ul>
+	</HPArticleWrapper>
+</article>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.article__wrapper_list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		@include mq(md) {
+			gap: 22px;
+		}
+	}
+</style>

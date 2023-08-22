@@ -1,4 +1,6 @@
 ---
+import HPArticleWrapper from '@components/ui/HPArticleWrapper.astro';
+
 import { accessData } from './../datas';
 import AccessItem from './AccessItem.astro';
 import Address from './Address.astro';
@@ -7,8 +9,7 @@ import BusinessWeek from './BusinessWeek.astro';
 ---
 
 <article class="access">
-	<div class="access__wrapper">
-		<h2 class="access__wrapper_title big-title">アクセス</h2>
+	<HPArticleWrapper title="アクセス">
 		<ul class="access__wrapper_list medium-text">
 			{accessData.map(item => <AccessItem icon={item.icon} text={item.text} />)}
 			<li>
@@ -19,7 +20,7 @@ import BusinessWeek from './BusinessWeek.astro';
 				</ul>
 			</li>
 		</ul>
-	</div>
+	</HPArticleWrapper>
 	<img
 		class="access__map"
 		src="/images/homepage/AccessMap__Desktop.svg"
@@ -29,10 +30,6 @@ import BusinessWeek from './BusinessWeek.astro';
 
 <style lang="scss">
 	@import '@styles/config';
-
-	.access__wrapper_title {
-		margin-bottom: 75px;
-	}
 
 	.access__wrapper_list,
 	.access__wrapper_nestedList {
@@ -50,19 +47,11 @@ import BusinessWeek from './BusinessWeek.astro';
 	}
 
 	.access__map {
+		max-width: 850px;
 		margin-top: 30px;
 	}
 
 	@include mq(md) {
-		.access__wrapper {
-			display: flex;
-		}
-
-		.access__wrapper_title,
-		.access__wrapper_list {
-			flex: 1;
-		}
-
 		.access__map {
 			max-width: 850px;
 			margin: 100px auto 0 auto;
