@@ -29,6 +29,7 @@
 
 		@include mq(md) {
 			height: calc(100vh - ($__desktop__headerHeight + $__header__paddingBottom));
+			margin-top: calc($__desktop__headerHeight + $__header__paddingBottom);
 		}
 	}
 
@@ -90,7 +91,6 @@
 				width: 1px;
 				background-color: $__main;
 				top: -0.75rem;
-				// left: -1rem;
 				animation: 2s linear infinite lineAnimation;
 			}
 		}
