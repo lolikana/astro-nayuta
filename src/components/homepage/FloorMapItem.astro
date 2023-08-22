@@ -2,7 +2,7 @@
 import FloorMapDetailItem from './FloorMapDetailItem.astro';
 import type { TFloorMapData } from './types';
 
-const { floor, details } = Astro.props as TFloorMapData;
+const { floor, details, additional } = Astro.props as TFloorMapData;
 ---
 
 <div class="floor">
@@ -13,13 +13,23 @@ const { floor, details } = Astro.props as TFloorMapData;
 		</div>
 		<ul class="floor__wrapper_list">
 			<FloorMapDetailItem details={details} />
+			{
+				additional ? (
+					<li class="floor__wrapper_additional small-text">{additional}</li>
+				) : null
+			}
 		</ul>
 	</div>
 </div>
 
 <style lang="scss">
+	@import '@styles/fonts';
 	@import '@styles/utils/variables';
 	@import '@styles/utils/mixins';
+
+	.floor {
+		margin-bottom: 100px;
+	}
 
 	.floor__title {
 		margin-bottom: 32px;
@@ -37,6 +47,10 @@ const { floor, details } = Astro.props as TFloorMapData;
 	}
 
 	@include mq(md) {
+		.floor {
+			margin-bottom: 130px;
+		}
+
 		.floor__wrapper {
 			display: flex;
 			gap: 8%;
@@ -47,8 +61,19 @@ const { floor, details } = Astro.props as TFloorMapData;
 			flex: 1;
 		}
 
+		.floor__wrapper_image {
+			position: relative;
+			img {
+				position: sticky;
+			}
+		}
+
 		.floor__wrapper_list {
 			gap: 70px;
+		}
+
+		.floor__wrapper_additional {
+			font-size: $__font12;
 		}
 	}
 </style>
