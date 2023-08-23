@@ -1,8 +1,13 @@
 ---
+import { getEatery } from '@api/eatery/getEatery';
 import PageTitle from '@components/ui/PageTitle.astro';
 import Layout from '@layouts/Layout.astro';
+
+const response = await getEatery({});
+console.log(response);
 ---
 
 <Layout headTitle={'飲食店ご紹介'}>
 	<PageTitle titleJa="飲食店のご紹介" titleEn="introduce eateries" />
 </Layout>
+ src/libs/microcms

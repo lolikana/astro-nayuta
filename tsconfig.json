@@ -39,6 +39,8 @@
 			"@components/*": ["src/components/*"],
 			"@templates/*": ["src/templates/*"],
 			"@layouts/*": ["src/layouts/*"],
+			"@libs/*": ["src/libs/*"],
+			"@api/*": ["src/api/*"],
 			"@styles/*": ["src/styles/*"],
 			"@scripts/*": ["src/scripts/*"]
 		} /* Specify a set of entries that re-map imports to additional lookup locations. */,

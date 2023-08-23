@@ -13,6 +13,8 @@ export default defineConfig({
 				'@components': '/src/components',
 				'@templates': '/src/templates',
 				'@layouts': '/src/layouts',
+				'@libs': '/src/libs',
+				'@api': '/src/api',
 				'@styles': '/src/styles',
 				'@scripts': '/src/scripts'
 			}
