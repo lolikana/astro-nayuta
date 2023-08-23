@@ -86,6 +86,20 @@ main {
 	}
 }
 
+.small-underline {
+	position: relative;
+	margin: 0 0 30px 0;
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: calc(-15px + 1px);
+		left: 0;
+		width: 2rem;
+		height: 1px;
+		background-color: $__primary;
+	}
+}
+
 .section-template {
 	margin-top: 90px;
 }
