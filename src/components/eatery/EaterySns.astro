@@ -1,0 +1,38 @@
+---
+import LinkSns from '@components/ui/LinkSns.astro';
+import type { TEatery } from '@libs/types';
+
+const snsLink = (item: TEatery, platform: 'Instagram' | 'Twitter') => {
+	const platformLowerCase: 'instagram' | 'twitter' = platform.toLowerCase() as
+		| 'instagram'
+		| 'twitter';
+	const platformUrl = item[`${platformLowerCase}Url`];
+	const platformName = item[`${platformLowerCase}Name`];
+	return { platformUrl, platformName };
+};
+
+type Props = {
+	item: TEatery;
+};
+
+const { item } = Astro.props;
+---
+
+{
+	item.sns.map(platform => (
+		<LinkSns
+			text={
+				snsLink(item, platform).platformName !== undefined
+					? snsLink(item, platform).platformName
+					: platform
+			}
+			link={
+				snsLink(item, platform).platformUrl !== undefined
+					? snsLink(item, platform).platformUrl
+					: '/'
+			}
+			image={`${platform}.svg`}
+			imageAlt={platform}
+		/>
+	))
+}

@@ -1,0 +1,26 @@
+---
+import type { TEatery } from '@libs/types';
+
+type Props = {
+	floor: TEatery['floor'];
+	dayOff: TEatery['dayOff'];
+	businessInfo: TEatery['businessInfo'];
+};
+
+const { floor, dayOff, businessInfo } = Astro.props;
+---
+
+<p class="floor small-underline">{floor}</p>
+<div class="business small-underline">
+	<p class="business__dayOff">毎週{dayOff}曜日 定休</p>
+	<p class="business__info">{businessInfo}</p>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.business__info {
+		font-size: $__font12;
+		white-space: pre;
+	}
+</style>

@@ -1,22 +1,13 @@
 ---
 import { getEatery } from '@api/eatery/getEatery';
-import LinkSns from '@components/ui/LinkSns.astro';
+import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
+import EaterySns from '@components/eatery/EaterySns.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
-import type { TEatery } from '@libs/types';
 
 const response = await getEatery({});
 const contents = response.contents;
-
-const snsLink = (item: TEatery, platform: 'Instagram' | 'Twitter') => {
-	const platformLowerCase: 'instagram' | 'twitter' = platform.toLowerCase() as
-		| 'instagram'
-		| 'twitter';
-	const platformUrl = item[`${platformLowerCase}Url`];
-	const platformName = item[`${platformLowerCase}Name`];
-	return { platformUrl, platformName };
-};
 ---
 
 <Layout headTitle={'飲食店ご紹介'}>
@@ -24,32 +15,19 @@ const snsLink = (item: TEatery, platform: 'Instagram' | 'Twitter') => {
 	{
 		contents.map(item => (
 			<article class="eatery">
-				<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
+				<div class="eatery__logo">
+					<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
+				</div>
 				<h2>{item.title}</h2>
 				<div class="eatery__sns">
-					{item.sns.map(platform => (
-						<LinkSns
-							text={
-								snsLink(item, platform).platformName !== undefined
-									? snsLink(item, platform).platformName
-									: platform
-							}
-							link={
-								snsLink(item, platform).platformUrl !== undefined
-									? snsLink(item, platform).platformUrl
-									: '/'
-							}
-							image={`${platform}.svg`}
-							imageAlt={platform}
-						/>
-					))}
+					<EaterySns item={item} />
 				</div>
-				<div>
-					<p class="small-underline">{item.floor}</p>
-					<div class="small-underline">
-						<p>毎週{item.dayOff}曜日 定休</p>
-						<p>{item.businessInfo}</p>
-					</div>
+				<div class="eatery__addInfo">
+					<EateryAddInfo
+						floor={item.floor}
+						dayOff={item.dayOff}
+						businessInfo={item.businessInfo}
+					/>
 				</div>
 			</article>
 		))
@@ -57,7 +35,37 @@ const snsLink = (item: TEatery, platform: 'Instagram' | 'Twitter') => {
 </Layout>
 
 <style lang="scss">
+	@import '@styles/config';
+
+	.eatery {
+		margin-top: 100px;
+		font-size: $__font14;
+	}
+
+	.eatery__logo {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 40px;
+	}
+
 	.eatery__sns {
 		margin: 60px 0;
+	}
+
+	@include mq(md) {
+		.eatery {
+			margin-top: 230px;
+			text-align: center;
+		}
+
+		.eatery__sns {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.eatery__logo {
+			margin-bottom: 70px;
+		}
 	}
 </style>

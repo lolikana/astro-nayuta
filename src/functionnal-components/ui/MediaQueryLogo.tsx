@@ -26,14 +26,7 @@ const MediaQueryLogo: FC<Props> = props => {
 		: `${logoSize(title)?.desktopWidth}px`;
 
 	return (
-		<div className="eatery__logo">
-			<img
-				src={imgUrl}
-				alt={`logo of ${title}`}
-				loading="lazy"
-				style={{ width: width }}
-			/>
-		</div>
+		<img src={imgUrl} alt={`logo of ${title}`} loading="lazy" style={{ width: width }} />
 	);
 };
 
