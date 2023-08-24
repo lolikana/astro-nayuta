@@ -1,9 +1,12 @@
 ---
+type Props = {
+	class: string;
+};
 const { class: bubble__modal } = Astro.props;
 ---
 
 <div class:list={['container', bubble__modal]}>
-	<div class="container__bubble_left">
+	<div class:list={['container__bubble']}>
 		<slot />
 	</div>
 </div>
@@ -11,11 +14,12 @@ const { class: bubble__modal } = Astro.props;
 <style lang="scss">
 	@import '@styles/config';
 
-	.container__bubble_left {
+	.container__bubble {
 		padding: 1rem;
 		border-radius: 5px;
 		position: relative;
 		border: 1px solid $__primary;
+		background-color: rgba(255, 255, 255, 0.8);
 
 		&::before,
 		&::after {
@@ -25,12 +29,25 @@ const { class: bubble__modal } = Astro.props;
 			width: 0;
 			z-index: 1;
 			border-style: solid;
+		}
+
+		&::before {
+			border-color: transparent $__primary transparent transparent;
+		}
+
+		&::after {
+			border-color: transparent #fff transparent transparent;
+		}
+	}
+
+	.container.left > .container__bubble {
+		&::before,
+		&::after {
 			border-width: 0 40px 19px 0;
 			top: 3rem;
 		}
 
 		&::before {
-			border-color: transparent $__primary transparent transparent;
 			left: -2.5rem;
 			margin-top: -2.4rem;
 		}
@@ -39,6 +56,25 @@ const { class: bubble__modal } = Astro.props;
 			border-color: transparent #fff transparent transparent;
 			left: -2.2rem;
 			margin-top: -2.3rem;
+		}
+	}
+
+	.container.top > .container__bubble {
+		&::before,
+		&::after {
+			border-width: 20px 20px 0;
+			top: 1rem;
+		}
+
+		&::before {
+			left: 8.1rem;
+			margin-top: -2.6em;
+		}
+
+		&::after {
+			border-width: 21px 19px 0;
+			left: 8.1rem;
+			margin-top: -2.1rem;
 		}
 	}
 </style>

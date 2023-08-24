@@ -110,8 +110,8 @@ const { dietaries } = Astro.props;
 
 	.bubble__modal {
 		position: absolute;
-		top: 0.25rem;
-		left: 15.6rem;
+		top: 4.3rem;
+		left: 0rem;
 		white-space: nowrap;
 		text-align: start;
 		animation: fadeOut 500ms ease forwards;
@@ -124,6 +124,11 @@ const { dietaries } = Astro.props;
 	@include mq(md) {
 		.dietaries {
 			width: 100%;
+		}
+
+		.bubble__modal {
+			top: 0.25rem;
+			left: 15.6rem;
 		}
 	}
 
@@ -157,8 +162,24 @@ const { dietaries } = Astro.props;
 
 <script>
 	const infoBtn = document.querySelector('.dietaries__info') as HTMLButtonElement;
-	const bubble = document.querySelector('.bubble__modal');
+	const bubble = document.querySelector('.bubble__modal') as HTMLDivElement;
 	infoBtn.addEventListener('click', () => {
-		bubble!.classList.toggle('active');
+		bubble.classList.toggle('active');
+	});
+
+	if (window.innerWidth < 768) {
+		bubble.classList.add('top');
+	} else {
+		bubble.classList.add('left');
+	}
+
+	window.addEventListener('resize', () => {
+		if (window.innerWidth < 768) {
+			bubble.classList.remove('left');
+			bubble.classList.add('top');
+		} else {
+			bubble.classList.remove('top');
+			bubble.classList.add('left');
+		}
 	});
 </script>
