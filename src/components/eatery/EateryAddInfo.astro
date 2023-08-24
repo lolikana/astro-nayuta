@@ -23,4 +23,11 @@ const { floor, dayOff, businessInfo } = Astro.props;
 		font-size: $__font12;
 		white-space: pre;
 	}
+
+	.small-underline {
+		margin: 0 0 60px 0;
+		&::after {
+			bottom: calc(-30px + 1px);
+		}
+	}
 </style>
