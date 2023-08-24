@@ -2,6 +2,7 @@
 import { getEatery } from '@api/eatery/getEatery';
 import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
 import EaterySns from '@components/eatery/EaterySns.astro';
+import Dietary from '@components/ui/Dietary.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
@@ -28,6 +29,9 @@ const contents = response.contents;
 						dayOff={item.dayOff}
 						businessInfo={item.businessInfo}
 					/>
+				</div>
+				<div class="eatery__dietaries">
+					<Dietary dietaries={item.dietaries} />
 				</div>
 			</article>
 		))

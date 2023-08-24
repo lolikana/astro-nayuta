@@ -13,7 +13,7 @@ export type TEatery = {
 	twitterName: string;
 	dayOff?: ['日' | '月' | '火' | '水' | '木' | '金' | '土'];
 	businessInfo?: string;
-	dietary: ['Vegan' | 'Muslim Friendly' | 'Lacto-ovo Vegetarian'];
+	dietaries: ['Vegan' | 'Muslim Friendly' | 'Lacto-ovo Vegetarian'];
 	vegewelUrl?: string;
 	addInfo?: string;
 	tableCheck: string;

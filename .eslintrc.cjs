@@ -14,7 +14,7 @@ module.exports = {
 		'astro/no-set-html-directive': 'error',
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
-		indent: [2, 'tab', { SwitchCase: 0 }],
+		indent: [2, 'tab', { SwitchCase: 1 }],
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { allowTemplateLiterals: true, avoidEscape: true }],
 		semi: ['error', 'always'],
