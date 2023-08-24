@@ -2,6 +2,7 @@
 import { getEatery } from '@api/eatery/getEatery';
 import LinkSns from '@components/ui/LinkSns.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
+import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
 import type { TEatery } from '@libs/types';
 
@@ -16,17 +17,6 @@ const snsLink = (item: TEatery, platform: 'Instagram' | 'Twitter') => {
 	const platformName = item[`${platformLowerCase}Name`];
 	return { platformUrl, platformName };
 };
-
-const logoSize = (
-	title: string
-): { mobileWidth: string; desktopWidth: string } | void => {
-	if (title.includes('Sui')) {
-		return { mobileWidth: '150', desktopWidth: '220' };
-	}
-	if (title.includes('ひとやすみ')) {
-		return { mobileWidth: '75', desktopWidth: '100' };
-	}
-};
 ---
 
 <Layout headTitle={'飲食店ご紹介'}>
@@ -34,12 +24,7 @@ const logoSize = (
 	{
 		contents.map(item => (
 			<article class="eatery">
-				<div
-					class="eatery__logo"
-					style={{ width: `${logoSize(item.title)?.mobileWidth}px` }}
-				>
-					<img src={item.image.url} alt={`logo of ${item.title}`} loading="lazy" />
-				</div>
+				<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
 				<h2>{item.title}</h2>
 				<div class="eatery__sns">
 					{item.sns.map(platform => (

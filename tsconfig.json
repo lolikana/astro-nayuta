@@ -37,6 +37,8 @@
 		"baseUrl": "." /* Specify the base directory to resolve non-relative module names. */,
 		"paths": {
 			"@components/*": ["src/components/*"],
+			"@functionnal-components/*": ["src/functionnal-components/*"],
+			"@hooks/*": ["src/hooks/*"],
 			"@templates/*": ["src/templates/*"],
 			"@layouts/*": ["src/layouts/*"],
 			"@libs/*": ["src/libs/*"],
