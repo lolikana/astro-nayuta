@@ -1,0 +1,44 @@
+---
+const { class: bubble__modal } = Astro.props;
+---
+
+<div class:list={['container', bubble__modal]}>
+	<div class="container__bubble_left">
+		<slot />
+	</div>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.container__bubble_left {
+		padding: 1rem;
+		border-radius: 5px;
+		position: relative;
+		border: 1px solid $__primary;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 0;
+			z-index: 1;
+			border-style: solid;
+			border-width: 0 40px 19px 0;
+			top: 3rem;
+		}
+
+		&::before {
+			border-color: transparent $__primary transparent transparent;
+			left: -2.5rem;
+			margin-top: -2.4rem;
+		}
+
+		&::after {
+			border-color: transparent #fff transparent transparent;
+			left: -2.2rem;
+			margin-top: -2.3rem;
+		}
+	}
+</style>

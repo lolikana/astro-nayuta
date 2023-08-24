@@ -1,8 +1,8 @@
 ---
 import { getEatery } from '@api/eatery/getEatery';
+import Dietary from '@components/common/Dietary.astro';
 import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
 import EaterySns from '@components/eatery/EaterySns.astro';
-import Dietary from '@components/ui/Dietary.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
@@ -42,6 +42,8 @@ const contents = response.contents;
 	@import '@styles/config';
 
 	.eatery {
+		display: flex;
+		flex-direction: column;
 		margin-top: 100px;
 		font-size: $__font14;
 	}
@@ -59,6 +61,7 @@ const contents = response.contents;
 	@include mq(md) {
 		.eatery {
 			margin-top: 230px;
+			align-items: center;
 			text-align: center;
 		}
 

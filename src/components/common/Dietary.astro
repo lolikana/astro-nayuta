@@ -1,0 +1,164 @@
+---
+import BubbleSpeech from '@components/ui/BubbleSpeech.astro';
+import type { TEatery } from '@libs/types';
+
+type Props = {
+	dietaries: TEatery['dietaries'];
+};
+
+const createInitial = (text: TEatery['dietaries'][number]): string | void => {
+	switch (text.trim()) {
+		case 'Vegan':
+			return 'VG';
+		case 'Muslim Friendly':
+			return 'MF';
+		case 'Lacto-ovo Vegetarian':
+			return 'LoV';
+		default:
+			'test';
+	}
+};
+
+const { dietaries } = Astro.props;
+---
+
+<div class="dietaries">
+	<ul class="dietaries__list">
+		{
+			dietaries.map(dietary => (
+				<li class="dietaries__list_item">{createInitial(dietary)}</li>
+			))
+		}
+	</ul>
+	<button role="contentinfo" class="dietaries__info">?</button>
+	<BubbleSpeech class="bubble__modal active">
+		<ul class="dietaries__bubble_list">
+			{
+				dietaries.map(dietary => (
+					<li class="dietaries__bubble_item">
+						<span class="bubble__initial">{createInitial(dietary)}</span>
+						<span>{dietary}</span>
+					</li>
+				))
+			}
+		</ul>
+	</BubbleSpeech>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.dietaries {
+		position: relative;
+	}
+
+	.dietaries,
+	.dietaries__list {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.dietaries__list {
+		font-size: $__font16;
+		&::after {
+			content: '';
+			margin: 0 auto;
+			width: 2rem;
+			height: 1px;
+			background-color: $__primary;
+		}
+	}
+
+	.dietaries__list_item,
+	.dietaries__info {
+		border: 1px solid $__primary;
+	}
+
+	.dietaries__info {
+		font-size: $__font22;
+		padding: 0.5rem 1rem;
+		border-radius: 50%;
+	}
+
+	.dietaries__list_item,
+	.dietaries__bubble_list {
+		padding: 0.25rem 0.5rem;
+	}
+
+	.dietaries__bubble_list {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.dietaries__bubble_item {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		word-wrap: none;
+	}
+
+	.dietaries__bubble_item {
+		.bubble__initial {
+			border: 1px solid $__primary;
+			margin-right: 1rem;
+			padding: 0.25rem 0.5rem;
+		}
+	}
+
+	.bubble__modal {
+		position: absolute;
+		top: 0.25rem;
+		left: 15.6rem;
+		white-space: nowrap;
+		text-align: start;
+		animation: fadeOut 500ms ease forwards;
+	}
+
+	.bubble__modal.active {
+		animation: fadeIn 500ms ease forwards;
+	}
+
+	@include mq(md) {
+		.dietaries {
+			width: 100%;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		99% {
+			width: fit-content;
+			height: fit-content;
+			overflow: visible;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		70% {
+			opacity: 0;
+		}
+		100% {
+			width: 0;
+			height: 0;
+			overflow: hidden;
+		}
+	}
+</style>
+
+<script>
+	const infoBtn = document.querySelector('.dietaries__info') as HTMLButtonElement;
+	const bubble = document.querySelector('.bubble__modal');
+	infoBtn.addEventListener('click', () => {
+		bubble!.classList.toggle('active');
+	});
+</script>
