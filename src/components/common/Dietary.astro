@@ -30,28 +30,25 @@ const { dietaries } = Astro.props;
 			))
 		}
 	</ul>
-	<button role="contentinfo" class="dietaries__info">?</button>
-	<BubbleSpeech class="bubble__modal active">
-		<ul class="dietaries__bubble_list">
-			{
-				dietaries.map(dietary => (
-					<li class="dietaries__bubble_item">
-						<span class="bubble__initial">{createInitial(dietary)}</span>
-						<span>{dietary}</span>
-					</li>
-				))
-			}
-		</ul>
-	</BubbleSpeech>
+	<div class="dietaries__info">
+		<button role="contentinfo" class="dietaries__info_btn">?</button>
+		<BubbleSpeech class="bubble__modal">
+			<ul class="dietaries__bubble_list">
+				{
+					dietaries.map(dietary => (
+						<li class="dietaries__bubble_item">
+							<span class="bubble__initial">{createInitial(dietary)}</span>
+							<span>{dietary}</span>
+						</li>
+					))
+				}
+			</ul>
+		</BubbleSpeech>
+	</div>
 </div>
 
 <style lang="scss">
 	@import '@styles/config';
-
-	.dietaries {
-		position: relative;
-	}
-
 	.dietaries,
 	.dietaries__list {
 		display: flex;
@@ -71,11 +68,15 @@ const { dietaries } = Astro.props;
 	}
 
 	.dietaries__list_item,
-	.dietaries__info {
+	.dietaries__info_btn {
 		border: 1px solid $__primary;
 	}
 
 	.dietaries__info {
+		position: relative;
+	}
+
+	.dietaries__info_btn {
 		font-size: $__font22;
 		padding: 0.5rem 1rem;
 		border-radius: 50%;
@@ -111,7 +112,7 @@ const { dietaries } = Astro.props;
 	.bubble__modal {
 		position: absolute;
 		top: 4.3rem;
-		left: 0rem;
+		left: -10rem;
 		white-space: nowrap;
 		text-align: start;
 		animation: fadeOut 500ms ease forwards;
@@ -121,14 +122,10 @@ const { dietaries } = Astro.props;
 		animation: fadeIn 500ms ease forwards;
 	}
 
-	@include mq(md) {
-		.dietaries {
-			width: 100%;
-		}
-
+	@include mq('custom900') {
 		.bubble__modal {
 			top: 0.25rem;
-			left: 15.6rem;
+			left: 5.5rem;
 		}
 	}
 
@@ -161,25 +158,29 @@ const { dietaries } = Astro.props;
 </style>
 
 <script>
-	const infoBtn = document.querySelector('.dietaries__info') as HTMLButtonElement;
-	const bubble = document.querySelector('.bubble__modal') as HTMLDivElement;
-	infoBtn.addEventListener('click', () => {
-		bubble.classList.toggle('active');
+	const infoBtn = document.querySelectorAll('.dietaries__info_btn');
+	const bubbles = document.querySelectorAll('.bubble__modal');
+	infoBtn.forEach(element => {
+		element.addEventListener('click', e => {
+			const target = e.target as HTMLButtonElement;
+			const closestBubble = target.nextElementSibling;
+			closestBubble?.classList.toggle('active');
+		});
 	});
 
-	if (window.innerWidth < 768) {
-		bubble.classList.add('top');
+	if (window.innerWidth < 900) {
+		bubbles.forEach(bubble => bubble.classList.add('top'));
 	} else {
-		bubble.classList.add('left');
+		bubbles.forEach(bubble => bubble.classList.add('left'));
 	}
 
 	window.addEventListener('resize', () => {
-		if (window.innerWidth < 768) {
-			bubble.classList.remove('left');
-			bubble.classList.add('top');
+		if (window.innerWidth < 900) {
+			bubbles.forEach(bubble => bubble.classList.remove('left'));
+			bubbles.forEach(bubble => bubble.classList.add('top'));
 		} else {
-			bubble.classList.remove('top');
-			bubble.classList.add('left');
+			bubbles.forEach(bubble => bubble.classList.remove('top'));
+			bubbles.forEach(bubble => bubble.classList.add('left'));
 		}
 	});
 </script>
