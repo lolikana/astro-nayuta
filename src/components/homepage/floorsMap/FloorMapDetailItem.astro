@@ -2,26 +2,29 @@
 import type { TFloorMapData } from './../types';
 
 const { details, additional } = Astro.props as TFloorMapData;
+const { class: floor__wrapper_list } = Astro.props;
 ---
 
-{
-	details.map(detail => (
-		<li class="detail">
-			<div class="detail__number medium-text">{detail.number}</div>
-			<a href={detail.link} class="detail__link link-border">
-				<div class="detail__icon">
-					<img src={`/icons/${detail.icon}__icon.svg`} alt={`icon of ${detail.icon}`} />
-				</div>
-				<div class="detail__text">
-					<p class="detail__text_ja small-text">{detail.text.ja}</p>
-					<p class="detail__text_en medium-text">{detail.text.en}</p>
-				</div>
-				<div class="detail__arrow" />
-			</a>
-		</li>
-	))
-}
-{additional ? <li class="additional_text small-text">{additional}</li> : null}
+<ul class={floor__wrapper_list}>
+	{
+		details.map(detail => (
+			<li class="detail">
+				<div class="detail__number medium-text">{detail.number}</div>
+				<a href={detail.link} class="detail__link link-border">
+					<div class="detail__icon">
+						<img src={`/icons/${detail.icon}__icon.svg`} alt={`icon of ${detail.icon}`} />
+					</div>
+					<div class="detail__text">
+						<p class="detail__text_ja small-text">{detail.text.ja}</p>
+						<p class="detail__text_en medium-text">{detail.text.en}</p>
+					</div>
+					<div class="detail__arrow" />
+				</a>
+			</li>
+		))
+	}
+	{additional ? <li class="additional_text small-text">{additional}</li> : null}
+</ul>
 
 <style lang="scss">
 	@import '@styles/config';

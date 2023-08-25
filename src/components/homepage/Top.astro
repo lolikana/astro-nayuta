@@ -69,64 +69,33 @@
 		flex: 1;
 
 		animation: 3s linear forwards opacityAnimation;
-		&_img {
-			position: absolute;
-			min-height: 30vh;
-			max-height: 50vh;
-			object-fit: cover;
-			object-position: 70% 50%;
-			bottom: 3.4rem;
-		}
-
-		&_scroll {
-			position: absolute;
-			left: 50%;
-			bottom: 1rem;
-			&::after {
-				content: 'scroll';
-				margin-left: 1rem;
-			}
-			&::before {
-				content: '';
-				position: absolute;
-				height: 50px;
-				width: 1px;
-				background-color: $__main;
-				top: -0.75rem;
-				animation: 2s linear infinite lineAnimation;
-			}
-		}
 	}
 
-	@keyframes lineAnimation {
-		0% {
-			transform: scaleY(0);
-			transform-origin: top;
-		}
-		25% {
-			transform: scaleY(0.75);
-			transform-origin: top;
-		}
-		35% {
-			transform: scaleY(0.75);
-			transform-origin: bottom;
-		}
-		55% {
-			transform: scaleY(0);
-			transform-origin: bottom;
-		}
-		100% {
-			transform: scaleY(0);
-			transform-origin: bottom;
-		}
+	.section__image_img {
+		position: absolute;
+		min-height: 30vh;
+		max-height: 50vh;
+		object-fit: cover;
+		object-position: 70% 50%;
+		bottom: 3.4rem;
 	}
 
-	@keyframes opacityAnimation {
-		0% {
-			opacity: 0;
+	.section__image_scroll {
+		position: absolute;
+		left: 50%;
+		bottom: 1rem;
+		&::after {
+			content: 'scroll';
+			margin-left: 1rem;
 		}
-		100% {
-			opacity: 1;
+		&::before {
+			content: '';
+			position: absolute;
+			height: 50px;
+			width: 1px;
+			background-color: $__main;
+			top: -0.75rem;
+			animation: 2s linear infinite lineAnimation;
 		}
 	}
 </style>

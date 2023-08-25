@@ -109,6 +109,24 @@ $__breakpoints: (
 		$__spread #c2c6c6;
 }
 
+@mixin small-underline($__margin: 0 0 60px 0, $__bottom: calc(-30px + 1px)) {
+	position: relative;
+	margin: $__margin;
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 2rem;
+		height: 1px;
+		background-color: $__primary;
+		bottom: $__bottom;
+		@include mq(md) {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
 /** Extends **/
 %flex-center {
 	display: flex;

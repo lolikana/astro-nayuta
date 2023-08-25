@@ -11,9 +11,11 @@ const { floor, details, additional } = Astro.props as TFloorMapData;
 		<div class="floor__wrapper_image">
 			<img src=`/images/homepage/${floor}_floor.svg` alt="" />
 		</div>
-		<ul class="floor__wrapper_list">
-			<FloorMapDetailItem details={details} additional={additional} />
-		</ul>
+		<FloorMapDetailItem
+			class="floor__wrapper_list"
+			details={details}
+			additional={additional}
+		/>
 	</div>
 </div>
 

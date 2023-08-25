@@ -10,10 +10,10 @@ type Props = {
 const { floor, dayOff, businessInfo } = Astro.props;
 ---
 
-<p class="floor small-underline">{floor}</p>
+<p class="floor">{floor}</p>
 {
 	dayOff.length !== 0 || businessInfo ? (
-		<div class="business small-underline">
+		<div class="business">
 			{dayOff.length !== 0 ? <p class="business__dayOff">毎週{dayOff}曜日 定休</p> : null}
 			{businessInfo ? <p class="business__info break-line">{businessInfo}</p> : null}
 		</div>
@@ -22,15 +22,12 @@ const { floor, dayOff, businessInfo } = Astro.props;
 
 <style lang="scss">
 	@import '@styles/config';
+	.floor,
+	.business {
+		@include small-underline();
+	}
 
 	.business__info {
 		font-size: $__font12;
-	}
-
-	.small-underline {
-		margin: 0 0 60px 0;
-		&::after {
-			bottom: calc(-30px + 1px);
-		}
 	}
 </style>

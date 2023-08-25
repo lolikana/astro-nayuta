@@ -1,6 +1,6 @@
 ---
 import { getEatery } from '@api/eatery/getEatery';
-import Dietary from '@components/common/Dietary.astro';
+import Dietary from '@components/eatery/Dietary.astro';
 import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
 import EaterySns from '@components/eatery/EaterySns.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
@@ -30,7 +30,7 @@ const contents = response.contents;
 						businessInfo={item.businessInfo}
 					/>
 				</div>
-				<div class="eatery__dietaries small-underline">
+				<div class="eatery__dietaries">
 					<Dietary dietaries={item.dietaries} />
 					<div class="eatery__dietaries_vegewel">
 						<a href={item.vegewelUrl} target="_blank">
@@ -72,12 +72,7 @@ const contents = response.contents;
 		gap: 30px;
 		margin-bottom: 20px;
 
-		&.small-underline {
-			margin: 0 0 60px 0;
-			&::after {
-				bottom: calc(-30px + 1px);
-			}
-		}
+		@include small-underline();
 	}
 
 	.eatery__dietaries_vegewel {

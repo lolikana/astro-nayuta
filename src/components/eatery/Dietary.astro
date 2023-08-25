@@ -15,7 +15,7 @@ const createInitial = (text: TEatery['dietaries'][number]): string | void => {
 		case 'Lacto-ovo Vegetarian':
 			return 'LoV';
 		default:
-			'test';
+			'none';
 	}
 };
 
@@ -126,33 +126,6 @@ const { dietaries } = Astro.props;
 		.bubble__modal {
 			top: 0.25rem;
 			left: 5.5rem;
-		}
-	}
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-		}
-		99% {
-			width: fit-content;
-			height: fit-content;
-			overflow: visible;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-	@keyframes fadeOut {
-		0% {
-			opacity: 1;
-		}
-		70% {
-			opacity: 0;
-		}
-		100% {
-			width: 0;
-			height: 0;
-			overflow: hidden;
 		}
 	}
 </style>
