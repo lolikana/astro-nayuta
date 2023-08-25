@@ -14,12 +14,16 @@ const { class: bubble__modal } = Astro.props;
 <style lang="scss">
 	@import '@styles/config';
 
+	.container {
+		z-index: 100;
+	}
+
 	.container__bubble {
 		padding: 1rem;
 		border-radius: 5px;
 		position: relative;
 		border: 1px solid $__primary;
-		background-color: rgba(255, 255, 255, 0.8);
+		background-color: rgba(255, 255, 255, 0.9);
 
 		&::before,
 		&::after {
