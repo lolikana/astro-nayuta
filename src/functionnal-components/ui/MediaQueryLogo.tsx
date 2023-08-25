@@ -10,6 +10,9 @@ const logoSize = (
 	if (title.includes('ひとやすみ')) {
 		return { mobileWidth: '75', desktopWidth: '100' };
 	}
+	if (title.includes('cafe letter') || title.includes('Juice bar Delight')) {
+		return { mobileWidth: '220', desktopWidth: '410' };
+	}
 };
 
 type Props = {
