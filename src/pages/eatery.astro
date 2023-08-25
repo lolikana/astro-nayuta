@@ -15,11 +15,11 @@ const contents = response.contents;
 	<PageTitle titleJa="飲食店のご紹介" titleEn="introduce eateries" />
 	{
 		contents.map(item => (
-			<article class="eatery">
+			<article class="eatery small-text">
 				<div class="eatery__logo">
 					<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
 				</div>
-				<h2>{item.title}</h2>
+				<h2 class="eatery__title">{item.title}</h2>
 				<div class="eatery__sns">
 					<EaterySns item={item} />
 				</div>
@@ -41,6 +41,14 @@ const contents = response.contents;
 						<p class="break-line">{item.addInfo}</p>
 					</div>
 				</div>
+				{item.tableCheckUrl ? (
+					<div class="eatery__tableCheck">
+						<p>席のご予約は以下のボタン（Table Check）より承っております。</p>
+						<a href={item.tableCheckUrl} target="_blank" class="eatery__tableCheck_link">
+							Table Check 予約ページへ
+						</a>
+					</div>
+				) : null}
 			</article>
 		))
 	}
@@ -53,13 +61,16 @@ const contents = response.contents;
 		display: flex;
 		flex-direction: column;
 		margin-top: 100px;
-		font-size: $__font14;
 	}
 
 	.eatery__logo {
 		display: flex;
 		justify-content: center;
 		margin-bottom: 40px;
+	}
+
+	.eatery__title {
+		font-size: $__font16;
 	}
 
 	.eatery__sns {
@@ -91,6 +102,18 @@ const contents = response.contents;
 		}
 	}
 
+	.eatery__tableCheck {
+		@include small-underline();
+	}
+
+	.eatery__tableCheck_link {
+		display: block;
+		width: fit-content;
+		padding: 0.5rem 1rem;
+		margin: 20px 0 0;
+		border: 1px solid $__primary;
+	}
+
 	@include mq(md) {
 		.eatery {
 			margin-top: 230px;
@@ -111,6 +134,10 @@ const contents = response.contents;
 		.eatery__dietaries {
 			align-items: center;
 			gap: 40px;
+		}
+
+		.eatery__tableCheck_link {
+			margin: 20px auto 0;
 		}
 	}
 </style>

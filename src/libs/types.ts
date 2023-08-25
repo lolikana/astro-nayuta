@@ -16,5 +16,5 @@ export type TEatery = {
 	dietaries: ['Vegan' | 'Muslim Friendly' | 'Lacto-ovo Vegetarian'];
 	vegewelUrl?: string;
 	addInfo?: string;
-	tableCheck: string;
+	tableCheckUrl: string;
 };
