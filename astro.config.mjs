@@ -21,5 +21,7 @@ export default defineConfig({
 				'@scripts': '/src/scripts'
 			}
 		}
-	}
+	},
+	site: 'https://lolikana.github.io',
+	base: '/nayuta-astro'
 });
