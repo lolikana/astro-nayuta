@@ -11,10 +11,14 @@ const { floor, dayOff, businessInfo } = Astro.props;
 ---
 
 <p class="floor small-underline">{floor}</p>
-<div class="business small-underline">
-	<p class="business__dayOff">毎週{dayOff}曜日 定休</p>
-	<p class="business__info">{businessInfo}</p>
-</div>
+{
+	dayOff.length !== 0 || businessInfo ? (
+		<div class="business small-underline">
+			{dayOff.length !== 0 ? <p class="business__dayOff">毎週{dayOff}曜日 定休</p> : null}
+			{businessInfo ? <p class="business__info">{businessInfo}</p> : null}
+		</div>
+	) : null
+}
 
 <style lang="scss">
 	@import '@styles/config';
