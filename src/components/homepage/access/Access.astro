@@ -1,6 +1,8 @@
 ---
 import HPArticleWrapper from '@components/ui/HPArticleWrapper.astro';
 
+import AccessMap from '/images/homepage/AccessMap__Desktop.svg';
+
 import { accessData } from './../datas';
 import AccessItem from './AccessItem.astro';
 import Address from './Address.astro';
@@ -21,11 +23,7 @@ import BusinessWeek from './BusinessWeek.astro';
 			</li>
 		</ul>
 	</HPArticleWrapper>
-	<img
-		class="access__map"
-		src="/images/homepage/AccessMap__Desktop.svg"
-		alt="access map to nayuta"
-	/>
+	<img class="access__map" src={AccessMap} alt="access map to nayuta" />
 </article>
 
 <style lang="scss">
