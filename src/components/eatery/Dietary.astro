@@ -131,14 +131,16 @@ const { dietaries } = Astro.props;
 </style>
 
 <script>
-	const infoBtn = document.querySelectorAll('.dietaries__info_btn');
+	const htmlSelect = document.querySelector('html') as HTMLElement;
 	const bubbles = document.querySelectorAll('.bubble__modal');
-	infoBtn.forEach(element => {
-		element.addEventListener('click', e => {
-			const target = e.target as HTMLButtonElement;
-			const closestBubble = target.nextElementSibling;
-			closestBubble?.classList.toggle('active');
-		});
+
+	htmlSelect.addEventListener('click', e => {
+		const target = e.target as HTMLButtonElement;
+
+		const closestBubble = target.nextElementSibling;
+		if (!closestBubble?.classList.contains('active'))
+			bubbles.forEach(bubble => bubble.classList.remove('active'));
+		closestBubble?.classList.toggle('active');
 	});
 
 	if (window.innerWidth < 900) {
