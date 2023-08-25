@@ -22,6 +22,6 @@ export default defineConfig({
 			}
 		}
 	},
-	site: 'https://nayuta-astro.github.io',
-	base: '/nayuta-astro'
+	site: 'https://lolikana.github.io',
+	base: '/astro-nayuta'
 });
