@@ -1,15 +1,14 @@
 ---
 import FooterLogo from '@components/ui/FooterLogo.astro';
+
+import InstagramLogo from '/logo/Instagram.svg';
+import MaedaGumiLogo from '/logo/MaedaGumi-Logo_MinchoType.svg';
+import TwitterLogo from '/logo/Twitter.svg';
 ---
 
 <footer class="footer small-text">
-	<FooterLogo
-		type="sns"
-		link={'#_blank'}
-		image={'Instagram.svg'}
-		altImage={'instagram'}
-	/>
-	<FooterLogo type="sns" link={'#_blank'} image={'Twitter.svg'} altImage={'twitter'} />
+	<FooterLogo type="sns" link={'#_blank'} image={InstagramLogo} altImage={'instagram'} />
+	<FooterLogo type="sns" link={'#_blank'} image={TwitterLogo} altImage={'twitter'} />
 	<div>
 		<a href="/astro-nayuta/privacy-policy" class="link-underline">プライバシーポリシー</a>
 	</div>
@@ -17,7 +16,7 @@ import FooterLogo from '@components/ui/FooterLogo.astro';
 		<FooterLogo
 			type="maeda"
 			link={'#_blank'}
-			image={'MaedaGumi-Logo_MinchoType.svg'}
+			image={MaedaGumiLogo}
 			altImage={'Maeda-Gumi'}
 		/>
 		<p class="footer__copyright">

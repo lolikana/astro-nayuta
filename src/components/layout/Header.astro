@@ -1,11 +1,13 @@
 ---
+import NayutaLogo from '/logo/nayuta__logo.svg';
+
 import Navbar from './Navbar.astro';
 ---
 
 <header class="header">
 	<div class="header__logo">
 		<a href="/astro-nayuta">
-			<img src="/logo/nayuta__logo.svg" alt="logo nayuta" />
+			<img src={NayutaLogo} alt="logo nayuta" />
 		</a>
 	</div>
 	<div class="header__nav">

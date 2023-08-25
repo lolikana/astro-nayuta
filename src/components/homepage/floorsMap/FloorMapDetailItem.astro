@@ -1,5 +1,26 @@
 ---
+import BasketIcon from '/icons/basket__icon.svg';
+import BookIcon from '/icons/book__icon.svg';
+import KnifeIcon from '/icons/knife__icon.svg';
+import RoomIcon from '/icons/room__icon.svg';
+import SaunaIcon from '/icons/sauna__icon.svg';
+
 import type { TFloorMapData } from './../types';
+
+const iconUrl = (icon: TFloorMapData['details'][0]['icon']): any => {
+	switch (icon) {
+		case 'basket':
+			return BasketIcon;
+		case 'book':
+			return BookIcon;
+		case 'knife':
+			return KnifeIcon;
+		case 'room':
+			return RoomIcon;
+		case 'sauna':
+			return SaunaIcon;
+	}
+};
 
 const { details, additional } = Astro.props as TFloorMapData;
 const { class: floor__wrapper_list } = Astro.props;
@@ -12,7 +33,7 @@ const { class: floor__wrapper_list } = Astro.props;
 				<div class="detail__number medium-text">{detail.number}</div>
 				<a href={detail.link} class="detail__link link-border">
 					<div class="detail__icon">
-						<img src={`/icons/${detail.icon}__icon.svg`} alt={`icon of ${detail.icon}`} />
+						<img src={iconUrl(detail.icon)} alt={`icon of ${detail.icon}`} />
 					</div>
 					<div class="detail__text">
 						<p class="detail__text_ja small-text">{detail.text.ja}</p>

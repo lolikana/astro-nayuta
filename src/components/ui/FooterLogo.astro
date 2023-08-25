@@ -11,7 +11,7 @@ const { type, link, image, altImage } = Astro.props;
 
 <div class={`${type === 'sns' ? 'logo__sns' : 'logo__maeda'}`}>
 	<a href={link}>
-		<img src={`/logo/${image}`} alt={`logo ${altImage}`} />
+		<img src={image} alt={`logo ${altImage}`} />
 	</a>
 </div>
 

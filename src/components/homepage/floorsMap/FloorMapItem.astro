@@ -1,4 +1,7 @@
 ---
+import FirstFloorMap from '/images/homepage/1F_floor.svg';
+import SecondFloorMap from '/images/homepage/2F_floor.svg';
+
 import type { TFloorMapData } from './../types';
 import FloorMapDetailItem from './FloorMapDetailItem.astro';
 
@@ -9,7 +12,7 @@ const { floor, details, additional } = Astro.props as TFloorMapData;
 	<h2 class="floor__title big-title">{floor}</h2>
 	<div class="floor__wrapper">
 		<div class="floor__wrapper_image">
-			<img src=`/images/homepage/${floor}_floor.svg` alt="" />
+			<img src={floor === '1F' ? FirstFloorMap : SecondFloorMap} alt="" />
 		</div>
 		<FloorMapDetailItem
 			class="floor__wrapper_list"

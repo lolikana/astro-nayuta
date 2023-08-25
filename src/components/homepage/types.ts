@@ -1,4 +1,9 @@
-export type TSnsData = { text: string; link: string; image: string; imageAlt: string };
+export type TSnsData = {
+	text: 'instagram' | 'twitter';
+	link: string;
+	image: string;
+	imageAlt: string;
+};
 
 export type TFloorMapData = {
 	floor: '1F' | '2F';

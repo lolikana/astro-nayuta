@@ -10,7 +10,7 @@ const { text, link, image, imageAlt } = Astro.props;
 
 <a class="link link-border" href={link}>
 	<p class="link__text">{text}</p>
-	<img class="link__image" src={`/logo/${image}`} alt={`logo ${imageAlt}`} />
+	<img class="link__image" src={image} alt={`logo ${imageAlt}`} />
 </a>
 
 <style lang="scss">
