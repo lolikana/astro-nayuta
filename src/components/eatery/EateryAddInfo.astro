@@ -15,7 +15,7 @@ const { floor, dayOff, businessInfo } = Astro.props;
 	dayOff.length !== 0 || businessInfo ? (
 		<div class="business small-underline">
 			{dayOff.length !== 0 ? <p class="business__dayOff">毎週{dayOff}曜日 定休</p> : null}
-			{businessInfo ? <p class="business__info">{businessInfo}</p> : null}
+			{businessInfo ? <p class="business__info break-line">{businessInfo}</p> : null}
 		</div>
 	) : null
 }
@@ -25,7 +25,6 @@ const { floor, dayOff, businessInfo } = Astro.props;
 
 	.business__info {
 		font-size: $__font12;
-		white-space: pre;
 	}
 
 	.small-underline {
