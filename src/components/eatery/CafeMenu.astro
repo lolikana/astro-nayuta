@@ -1,0 +1,42 @@
+---
+import type { TCafeMenu } from '@libs/types';
+
+import CafeMenuCategory from './CafeMenuCategory.astro';
+import MenuContainer from './MenuContainer.astro';
+
+const { categories, addInfo } = Astro.props as TCafeMenu;
+---
+
+<MenuContainer>
+	<ul class="menus__items">
+		{
+			categories.map(category => (
+				<li class="menus__item">
+					{category.category !== null && <h3>{category.category}</h3>}
+					<CafeMenuCategory menus={category.menus} />
+				</li>
+			))
+		}
+		{
+			addInfo && (
+				<li class="break-line">
+					{addInfo.map(info => (
+						<p>{info}</p>
+					))}
+				</li>
+			)
+		}
+	</ul>
+</MenuContainer>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.menus__items,
+	.menus__item {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		text-align: left;
+	}
+</style>

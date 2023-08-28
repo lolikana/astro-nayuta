@@ -1,0 +1,40 @@
+---
+import type { TCafeMenu } from '@libs/types';
+
+import CafeMenuOption from './CafeMenuOption.astro';
+
+const category = Astro.props as TCafeMenu['categories'][number];
+---
+
+<ul class="menu__item__categories">
+	{
+		category.menus.map(menu => (
+			<li class="menu__item_category">
+				<div class="category__dish">
+					<span>{menu.dish}</span>
+					<span>... ¥{menu.price.toLocaleString()}</span>
+				</div>
+				<div class="category__addInfo">{menu.addInfo && <p>{menu.addInfo}</p>}</div>
+				{menu.options && <CafeMenuOption options={menu.options} class="category__dish" />}
+			</li>
+		))
+	}
+</ul>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.menu__item_category {
+		.category__addInfo {
+			font-size: $__font11;
+		}
+	}
+
+	.category__dish {
+		display: flex;
+
+		span:first-child {
+			width: 80%;
+		}
+	}
+</style>

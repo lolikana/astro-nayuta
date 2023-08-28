@@ -7,24 +7,26 @@ const { menus } = Astro.props as TRestaurantMenu;
 ---
 
 <MenuContainer>
-	{
-		menus.map(menu => (
-			<li class="menus__container_item">
-				<h3 class="item__title">{menu.menu}</h3>
-				<p class="item__price">¥{menu.price.toLocaleString()}(税込)</p>
-				<ul class="item__dishes">
-					{menu.dishes ? menu.dishes.map(dish => <li>{dish}</li>) : null}
-					{menu.addInfo ? <li>{menu.addInfo}</li> : null}
-				</ul>
-			</li>
-		))
-	}
+	<ul>
+		{
+			menus.map(menu => (
+				<li class="menus__item">
+					<h3 class="menus__item_title">{menu.menu}</h3>
+					<p class="menus__item_price">¥{menu.price.toLocaleString()}(税込)</p>
+					<ul class="menus__item_dishes">
+						{menu.dishes ? menu.dishes.map(dish => <li>{dish}</li>) : null}
+						{menu.addInfo ? <li>{menu.addInfo}</li> : null}
+					</ul>
+				</li>
+			))
+		}
+	</ul>
 </MenuContainer>
 
 <style lang="scss">
 	@import '@styles/config';
 
-	.menus__container_item {
+	.menus__item {
 		display: flex;
 		flex-direction: column;
 		gap: 20px;
@@ -33,11 +35,11 @@ const { menus } = Astro.props as TRestaurantMenu;
 			@include small-underline($__margin: 0 0 70px 0, $__bottom: calc(-35px + 1px));
 		}
 
-		.item__title {
+		.menus__item_title {
 			font-weight: $__medium;
 		}
 
-		.items__dishes {
+		.menus__item_dishes {
 			display: flex;
 			flex-direction: column;
 			gap: 12px;

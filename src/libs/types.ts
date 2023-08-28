@@ -30,11 +30,11 @@ export type TRestaurantMenu = {
 };
 
 export type TCafeMenu = {
-	shop: '玄米おにぎり  ひとやすみ' | 'cafe letter' | 'Juice Bar Delight';
+	shop: '玄米おにぎり ひとやすみ' | 'cafe letter' | 'Juice bar Delight';
 	categories: {
 		category: string | null;
 		menus: {
-			menu: string;
+			dish: string;
 			price: number;
 			addInfo?: string[];
 			options?: {

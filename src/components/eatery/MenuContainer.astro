@@ -4,20 +4,20 @@
 
 <h2 class="menus__title">MENU</h2>
 <div class="menus__container">
-	<ul class="menus__container_items">
+	<div class="menus__container_wrapper">
 		<slot />
-	</ul>
+	</div>
 </div>
 
 <style lang="scss">
 	@import '@styles/config';
+
 	.menus__title {
 		font-size: $__font11;
 		text-align: left;
 	}
 
 	.menus__container {
-		max-width: 420px;
 		position: relative;
 		&::before,
 		&::after {
@@ -30,7 +30,7 @@
 		}
 	}
 
-	.menus__container_items {
+	.menus__container_wrapper {
 		padding: 30px 0 80px;
 
 		@include mq(md) {

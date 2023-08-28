@@ -22,41 +22,41 @@ export const restaurantMenuData: TRestaurantMenu[] = [
 
 export const cafeMenuData: TCafeMenu[] = [
 	{
-		shop: '玄米おにぎり  ひとやすみ',
+		shop: '玄米おにぎり ひとやすみ',
 		categories: [
 			{
 				category: null,
 				menus: [
 					{
-						menu: 'なゆた(大葉&みょうが&生姜)',
+						dish: 'なゆた(大葉&みょうが&生姜)',
 						price: 308
 					},
 					{
-						menu: '塩',
+						dish: '塩',
 						price: 220
 					},
 					{
-						menu: '白菜漬',
+						dish: '白菜漬',
 						price: 275
 					},
 					{
-						menu: 'しそ昆布',
+						dish: 'しそ昆布',
 						price: 275
 					},
 					{
-						menu: 'きのこ',
+						dish: 'きのこ',
 						price: 308
 					},
 					{
-						menu: '梅干し',
+						dish: '梅干し',
 						price: 275
 					},
 					{
-						menu: 'ごま塩',
+						dish: 'ごま塩',
 						price: 242
 					},
 					{
-						menu: '納豆',
+						dish: '納豆',
 						price: 275,
 						options: [
 							{
@@ -72,9 +72,9 @@ export const cafeMenuData: TCafeMenu[] = [
 						]
 					},
 					{
-						menu: '発酵玄米',
+						dish: '発酵玄米',
 						price: 330,
-						addInfo: ['発酵玄米おにぎりには海苔がついていません。'],
+						addInfo: ['※ 発酵玄米おにぎりには海苔がついていません。'],
 						options: [
 							{
 								type: 'add',
@@ -100,7 +100,7 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: 'coffee',
 				menus: [
 					{
-						menu: 'ホットコーヒー',
+						dish: 'ホットコーヒー',
 						price: 550,
 						options: [
 							{
@@ -112,7 +112,7 @@ export const cafeMenuData: TCafeMenu[] = [
 						]
 					},
 					{
-						menu: 'アイスコーヒー',
+						dish: 'アイスコーヒー',
 						price: 550
 					}
 				]
@@ -121,23 +121,23 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: 'tea',
 				menus: [
 					{
-						menu: 'アイスコーヒー',
+						dish: 'アイスコーヒー',
 						price: 550
 					},
 					{
-						menu: 'ダージリン',
+						dish: 'ダージリン',
 						price: 550
 					},
 					{
-						menu: 'ダージリン',
+						dish: 'ダージリン',
 						price: 550
 					},
 					{
-						menu: 'ジャスミン',
+						dish: 'ジャスミン',
 						price: 550
 					},
 					{
-						menu: 'カモミール',
+						dish: 'カモミール',
 						price: 550
 					}
 				]
@@ -146,19 +146,19 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: 'デザート',
 				menus: [
 					{
-						menu: 'ガトーショコラ',
+						dish: 'ガトーショコラ',
 						price: 440
 					},
 					{
-						menu: 'ブラウニー',
+						dish: 'ブラウニー',
 						price: 440
 					},
 					{
-						menu: 'フィナンシェ',
+						dish: 'フィナンシェ',
 						price: 220
 					},
 					{
-						menu: 'パウンドケーキ',
+						dish: 'パウンドケーキ',
 						price: 385
 					}
 				]
@@ -167,45 +167,45 @@ export const cafeMenuData: TCafeMenu[] = [
 		addInfo: ['※ 上記価格は全て税込(10%)です。']
 	},
 	{
-		shop: 'Juice Bar Delight',
+		shop: 'Juice bar Delight',
 		categories: [
 			{
 				category: 'スムージー',
 				menus: [
 					{
-						menu: 'キウイ',
+						dish: 'キウイ',
 						price: 660
 					},
 					{
-						menu: 'りんご',
+						dish: 'りんご',
 						price: 660
 					},
 					{
-						menu: 'アップルジンジャー',
+						dish: 'アップルジンジャー',
 						price: 660
 					},
 					{
-						menu: 'グリーンスムージー',
+						dish: 'グリーンスムージー',
 						price: 660
 					},
 					{
-						menu: '青しそスムージー',
+						dish: '青しそスムージー',
 						price: 660
 					},
 					{
-						menu: 'アップルキャロット',
+						dish: 'アップルキャロット',
 						price: 660
 					},
 					{
-						menu: 'バナナ',
+						dish: 'バナナ',
 						price: 660
 					},
 					{
-						menu: 'ミックスベリーヨーグルト',
+						dish: 'ミックスベリーヨーグルト',
 						price: 660
 					},
 					{
-						menu: 'さつまいも',
+						dish: 'さつまいも',
 						price: 660
 					}
 				]
@@ -214,11 +214,11 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: '酵素ドリンク',
 				menus: [
 					{
-						menu: '柑橘系酵素ドリンク',
+						dish: '柑橘系酵素ドリンク',
 						price: 550
 					},
 					{
-						menu: 'りんご酵素ドリンク',
+						dish: 'りんご酵素ドリンク',
 						price: 550
 					}
 				]
@@ -227,31 +227,31 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: 'コンブチャ',
 				menus: [
 					{
-						menu: 'アッサム',
+						dish: 'アッサム',
 						price: 550
 					},
 					{
-						menu: 'ジャスミン',
+						dish: 'ジャスミン',
 						price: 550
 					},
 					{
-						menu: 'ルイボス',
+						dish: 'ルイボス',
 						price: 550
 					},
 					{
-						menu: '緑茶',
+						dish: '緑茶',
 						price: 550
 					},
 					{
-						menu: 'ラベンダー',
+						dish: 'ラベンダー',
 						price: 550
 					},
 					{
-						menu: 'カモミール',
+						dish: 'カモミール',
 						price: 550
 					},
 					{
-						menu: 'レモングラス',
+						dish: 'レモングラス',
 						price: 550
 					}
 				]
@@ -260,11 +260,11 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: 'スパークリングドリンク',
 				menus: [
 					{
-						menu: '自家製ジンジャーエール',
+						dish: '自家製ジンジャーエール',
 						price: 550
 					},
 					{
-						menu: '自家製コーラ',
+						dish: '自家製コーラ',
 						price: 550
 					}
 				]
@@ -273,11 +273,11 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: 'ホットドリンク',
 				menus: [
 					{
-						menu: 'ゆずティー',
+						dish: 'ゆずティー',
 						price: 550
 					},
 					{
-						menu: 'ホットジンジャー',
+						dish: 'ホットジンジャー',
 						price: 550
 					}
 				]
@@ -286,7 +286,7 @@ export const cafeMenuData: TCafeMenu[] = [
 				category: null,
 				menus: [
 					{
-						menu: 'テイクアウト用 オリジナルボトル',
+						dish: 'テイクアウト用 オリジナルボトル',
 						price: 330
 					}
 				]

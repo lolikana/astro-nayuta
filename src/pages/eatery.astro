@@ -1,5 +1,6 @@
 ---
 import { getEatery } from '@api/eatery/getEatery';
+import CafeMenu from '@components/eatery/CafeMenu.astro';
 import Dietary from '@components/eatery/Dietary.astro';
 import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
 import EaterySns from '@components/eatery/EaterySns.astro';
@@ -7,7 +8,7 @@ import RestaurantMenu from '@components/eatery/RestaurantMenu.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
-import { restaurantMenuData } from '@libs/data';
+import { cafeMenuData, restaurantMenuData } from '@libs/data';
 
 const response = await getEatery({});
 const contents = response.contents;
@@ -55,6 +56,11 @@ const contents = response.contents;
 					{restaurantMenuData.map(restaurant => {
 						if (restaurant.shop === item.title) {
 							return <RestaurantMenu menus={restaurant.menus} />;
+						}
+					})}
+					{cafeMenuData.map(cafe => {
+						if (cafe.shop === item.title) {
+							return <CafeMenu categories={cafe.categories} addInfo={cafe.addInfo} />;
 						}
 					})}
 				</div>
@@ -125,7 +131,7 @@ const contents = response.contents;
 
 	@include mq(md) {
 		.eatery {
-			margin-top: 230px;
+			margin: 230px;
 			align-items: center;
 			text-align: center;
 		}
@@ -147,6 +153,11 @@ const contents = response.contents;
 
 		.eatery__tableCheck_link {
 			margin: 20px auto 0;
+		}
+
+		.eatery__menus {
+			min-width: 420px;
+			max-width: 520px;
 		}
 	}
 </style>
