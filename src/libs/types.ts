@@ -18,3 +18,31 @@ export type TEatery = {
 	addInfo?: string;
 	tableCheckUrl: string;
 };
+
+export type TRestaurantMenu = {
+	shop: 'Vegan Restaurant Sui';
+	menus: {
+		menu: string;
+		price: number;
+		dishes?: string[];
+		addInfo?: string[];
+	}[];
+};
+
+export type TCafeMenu = {
+	shop: '玄米おにぎり  ひとやすみ' | 'cafe letter' | 'Juice Bar Delight';
+	categories: {
+		category: string | null;
+		menus: {
+			menu: string;
+			price: number;
+			addInfo?: string[];
+			options?: {
+				type?: 'add' | 'remove';
+				name: string;
+				price?: number;
+			}[];
+		}[];
+	}[];
+	addInfo?: string[];
+};

@@ -3,9 +3,11 @@ import { getEatery } from '@api/eatery/getEatery';
 import Dietary from '@components/eatery/Dietary.astro';
 import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
 import EaterySns from '@components/eatery/EaterySns.astro';
+import RestaurantMenu from '@components/eatery/RestaurantMenu.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
+import { restaurantMenuData } from '@libs/data';
 
 const response = await getEatery({});
 const contents = response.contents;
@@ -49,6 +51,13 @@ const contents = response.contents;
 						</a>
 					</div>
 				) : null}
+				<div class="eatery__menus">
+					{restaurantMenuData.map(restaurant => {
+						if (restaurant.shop === item.title) {
+							return <RestaurantMenu menus={restaurant.menus} />;
+						}
+					})}
+				</div>
 			</article>
 		))
 	}

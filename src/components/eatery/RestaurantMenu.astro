@@ -1,0 +1,46 @@
+---
+import type { TRestaurantMenu } from '@libs/types';
+
+import MenuContainer from './MenuContainer.astro';
+
+const { menus } = Astro.props as TRestaurantMenu;
+---
+
+<MenuContainer>
+	{
+		menus.map(menu => (
+			<li class="menus__container_item">
+				<h3 class="item__title">{menu.menu}</h3>
+				<p class="item__price">¥{menu.price.toLocaleString()}(税込)</p>
+				<ul class="item__dishes">
+					{menu.dishes ? menu.dishes.map(dish => <li>{dish}</li>) : null}
+					{menu.addInfo ? <li>{menu.addInfo}</li> : null}
+				</ul>
+			</li>
+		))
+	}
+</MenuContainer>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.menus__container_item {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		&:not(:last-child) {
+			@include small-underline($__margin: 0 0 70px 0, $__bottom: calc(-35px + 1px));
+		}
+
+		.item__title {
+			font-weight: $__medium;
+		}
+
+		.items__dishes {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
+	}
+</style>
