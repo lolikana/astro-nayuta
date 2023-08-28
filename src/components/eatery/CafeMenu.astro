@@ -13,7 +13,7 @@ const { categories, addInfo } = Astro.props as TCafeMenu;
 			categories.map(category => (
 				<li class="menus__item">
 					{category.category !== null && <h3>{category.category}</h3>}
-					<CafeMenuCategory menus={category.menus} />
+					<CafeMenuCategory menus={category.menus} category={category.category} />
 				</li>
 			))
 		}
@@ -36,7 +36,13 @@ const { categories, addInfo } = Astro.props as TCafeMenu;
 	.menus__item {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
 		text-align: left;
+	}
+
+	.menus__items {
+		gap: 30px;
+	}
+	.menus__item {
+		gap: 16px;
 	}
 </style>
