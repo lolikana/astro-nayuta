@@ -1,9 +1,6 @@
-@import './utils/variables';
-@import './utils/mixins';
+@import './config.scss';
 
 @import './reset';
-@import './colors';
-@import './fonts';
 
 html,
 body {
@@ -83,23 +80,6 @@ main {
 
 	@include mq(md) {
 		font-size: $__font16;
-	}
-}
-
-.small-underline {
-	position: relative;
-	&::after {
-		content: '';
-		position: absolute;
-		left: 0;
-		width: 2rem;
-		height: 1px;
-		background-color: $__primary;
-
-		@include mq(md) {
-			left: 50%;
-			transform: translateX(-50%);
-		}
 	}
 }
 
