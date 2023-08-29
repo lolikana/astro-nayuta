@@ -1,12 +1,13 @@
 ---
-image: 
-	url: "/public/logo/marche_acoustic__logo.svg"
-	alt: "Marche acoustic logo"
+image: {
+		url: "/astro-nayuta/logo/marche_acoustic__logo.svg"
+		}
 title: "marche acoustic"
-sns: 
-	url: "https://www.instagram.com/nayuta_acoustic/"
-	name: "nayuta_acoustic"
-floor: "1"
+sns: ["Instagram"]
+instagramUrl: "https://www.instagram.com/nayuta_acoustic/"
+instagramName: "nayuta_acoustic"
+floor: "1F"
+dayOff: []
 ---
 
 量り売り、身体にやさしい食材の販売、そして産直マーケットのエリアです。

@@ -1,0 +1,19 @@
+---
+import EateryFacilityWrapper from '@components/ui/EateryFacilityWrapper.astro';
+import PageTitle from '@components/ui/PageTitle.astro';
+import Layout from '@layouts/Layout.astro';
+import type { TFacility } from '@libs/types';
+
+const allFacilities = await Astro.glob<TFacility>('../content/facilities/*.md');
+---
+
+<Layout headTitle={'販売店、貸し施設ご紹介'}>
+	<PageTitle titleJa="販売店、貸し施設ご紹介" titleEn="introduce shops and facilities" />
+	{
+		allFacilities.map(item => {
+			console.log(item.frontmatter);
+
+			return <EateryFacilityWrapper item={item.frontmatter} />;
+		})
+	}
+</Layout>

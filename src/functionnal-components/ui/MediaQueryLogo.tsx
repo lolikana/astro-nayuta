@@ -4,13 +4,18 @@ import type { FC } from 'react';
 const logoSize = (
 	title: string
 ): { mobileWidth: string; desktopWidth: string } | void => {
-	if (title.includes('Sui')) {
+	if (title.includes('Sui') || title.includes('flower place gift')) {
 		return { mobileWidth: '150', desktopWidth: '220' };
 	}
 	if (title.includes('ひとやすみ')) {
 		return { mobileWidth: '75', desktopWidth: '100' };
 	}
-	if (title.includes('cafe letter') || title.includes('Juice bar Delight')) {
+	if (
+		title.includes('cafe letter') ||
+		title.includes('Juice bar Delight') ||
+		title.includes('marche acoustic') ||
+		title.includes('boutique present')
+	) {
 		return { mobileWidth: '220', desktopWidth: '410' };
 	}
 };

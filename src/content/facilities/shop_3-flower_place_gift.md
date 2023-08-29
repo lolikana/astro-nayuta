@@ -1,12 +1,13 @@
 ---
-image: 
-	url: "/public/logo/flower_place_gift__logo.svg"
-	alt: "flower place gift logo"
+image: {
+	url: "/astro-nayuta/logo/flower_place_gift__logo.svg"
+	}
 title: "flower place gift"
-sns: 
-	url: "https://www.instagram.com/nayuta_gift/"
-	name: "nayuta_gift"
-floor: "1"
+sns: ["Instagram"]
+instagramUrl: "https://www.instagram.com/nayuta_gift/"
+instagramName: "nayuta_gift"
+floor: "1F"
+dayOff: ["水"]
 ---
 
 生花＆ドライフラワーの制作と販売をおこなっております。
