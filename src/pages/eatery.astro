@@ -2,11 +2,9 @@
 import { getEatery } from '@api/eatery/getEatery';
 import CafeMenu from '@components/eatery/CafeMenu.astro';
 import Dietary from '@components/eatery/Dietary.astro';
-import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
-import EaterySns from '@components/eatery/EaterySns.astro';
 import RestaurantMenu from '@components/eatery/RestaurantMenu.astro';
+import EateryFacilityWrapper from '@components/ui/EateryFacilityWrapper.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
-import MediaQueryLogo from '@functionnal-components/ui/MediaQueryLogo';
 import Layout from '@layouts/Layout.astro';
 import { cafeMenuData, restaurantMenuData } from '@libs/data';
 
@@ -18,21 +16,7 @@ const contents = response.contents;
 	<PageTitle titleJa="飲食店のご紹介" titleEn="introduce eateries" />
 	{
 		contents.map(item => (
-			<article class="eatery small-text">
-				<div class="eatery__logo">
-					<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
-				</div>
-				<h2 class="eatery__title">{item.title}</h2>
-				<div class="eatery__sns">
-					<EaterySns item={item} />
-				</div>
-				<div class="eatery__addInfo">
-					<EateryAddInfo
-						floor={item.floor}
-						dayOff={item.dayOff}
-						businessInfo={item.businessInfo}
-					/>
-				</div>
+			<EateryFacilityWrapper item={item}>
 				<div class="eatery__dietaries">
 					<Dietary dietaries={item.dietaries} />
 					<div class="eatery__dietaries_vegewel">
@@ -64,33 +48,13 @@ const contents = response.contents;
 						}
 					})}
 				</div>
-			</article>
+			</EateryFacilityWrapper>
 		))
 	}
 </Layout>
 
 <style lang="scss">
 	@import '@styles/config';
-
-	.eatery {
-		display: flex;
-		flex-direction: column;
-		margin-top: 100px;
-	}
-
-	.eatery__logo {
-		display: flex;
-		justify-content: center;
-		margin-bottom: 40px;
-	}
-
-	.eatery__title {
-		font-size: $__font16;
-	}
-
-	.eatery__sns {
-		margin: 60px 0;
-	}
 
 	.eatery__dietaries {
 		display: flex;
@@ -130,22 +94,6 @@ const contents = response.contents;
 	}
 
 	@include mq(md) {
-		.eatery {
-			margin: 230px;
-			align-items: center;
-			text-align: center;
-		}
-
-		.eatery__sns {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-		}
-
-		.eatery__logo {
-			margin-bottom: 70px;
-		}
-
 		.eatery__dietaries {
 			align-items: center;
 			gap: 40px;

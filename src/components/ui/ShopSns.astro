@@ -1,0 +1,43 @@
+---
+import LinkSns from '@components/ui/LinkSns.astro';
+import type { TEatery } from '@libs/types';
+
+import InstagramLogo from '/logo/Instagram.svg';
+import TwitterLogo from '/logo/Twitter.svg';
+
+type Props = {
+	item: TEatery;
+};
+
+const snsLink = (platform: 'Instagram' | 'Twitter') => {
+	const platformLogo = () => {
+		switch (platform) {
+			case 'Instagram':
+				return InstagramLogo;
+			case 'Twitter':
+				return TwitterLogo;
+		}
+	};
+	return { platformLogo };
+};
+
+const { item } = Astro.props;
+---
+
+{
+	item.sns.map((platform: 'Instagram' | 'Twitter') => {
+		const platformLowerCase: 'instagram' | 'twitter' = platform.toLowerCase() as
+			| 'instagram'
+			| 'twitter';
+		const platformUrl = item[`${platformLowerCase}Url`];
+		const platformName = item[`${platformLowerCase}Name`];
+		return (
+			<LinkSns
+				text={platformName !== undefined ? platformName : platform}
+				link={platformUrl !== undefined ? platformUrl : '/'}
+				image={snsLink(platform).platformLogo()}
+				imageAlt={platform}
+			/>
+		);
+	})
+}
