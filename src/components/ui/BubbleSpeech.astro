@@ -72,13 +72,34 @@ const { class: bubble__modal } = Astro.props;
 
 		&::before {
 			left: 8.1rem;
-			margin-top: -2.6em;
+			margin-top: -3em;
 		}
 
 		&::after {
 			border-width: 21px 19px 0;
-			left: 8.1rem;
-			margin-top: -2.1rem;
+			left: 8.15rem;
+			margin-top: -2.2rem;
+		}
+	}
+
+	@include mq(md) {
+		.container.top > .container__bubble {
+			&::before,
+			&::after {
+				border-width: 20px 20px 0;
+				top: 1rem;
+			}
+
+			&::before {
+				left: 8.1rem;
+				margin-top: -2.6em;
+			}
+
+			&::after {
+				border-width: 21px 19px 0;
+				left: 8.1rem;
+				margin-top: -2.1rem;
+			}
 		}
 	}
 </style>
