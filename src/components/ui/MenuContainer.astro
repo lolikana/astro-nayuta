@@ -2,8 +2,8 @@
 
 ---
 
-<h2 class="menus__title">MENU</h2>
-<div class="menus__container">
+<h3 class="menus__title">MENU</h3>
+<div class="menus__container container-line">
 	<div class="menus__container_wrapper">
 		<slot />
 	</div>
@@ -15,19 +15,6 @@
 	.menus__title {
 		font-size: $__font11;
 		text-align: left;
-	}
-
-	.menus__container {
-		position: relative;
-		&::before,
-		&::after {
-			content: '';
-			width: 100%;
-			height: 1px;
-			background-color: $__primary;
-			position: absolute;
-			left: 0;
-		}
 	}
 
 	.menus__container_wrapper {

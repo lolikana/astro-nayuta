@@ -1,7 +1,9 @@
 ---
+import FacilityInfo from '@components/facility/FacilityInfo.astro';
 import EateryFacilityWrapper from '@components/ui/EateryFacilityWrapper.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import Layout from '@layouts/Layout.astro';
+import { facilitiesData } from '@libs/data';
 import type { TFacility } from '@libs/types';
 
 const allFacilities = await Astro.glob<TFacility>('../content/facilities/*.md');
@@ -11,9 +13,42 @@ const allFacilities = await Astro.glob<TFacility>('../content/facilities/*.md');
 	<PageTitle titleJa="販売店、貸し施設ご紹介" titleEn="introduce shops and facilities" />
 	{
 		allFacilities.map(item => {
-			console.log(item.frontmatter);
+			const { Content } = item;
+			const isAnotherOrVanish =
+				item.frontmatter.title === 'Tent Sauna THE VANISH' ||
+				item.frontmatter.title === 'Rental Space another';
 
-			return <EateryFacilityWrapper item={item.frontmatter} />;
+			return (
+				<EateryFacilityWrapper
+					item={item.frontmatter}
+					class={isAnotherOrVanish ? '' : 'facility'}
+				>
+					<div class="shop-content">
+						<Content />
+					</div>
+					{isAnotherOrVanish &&
+						facilitiesData.map(data => {
+							if (data.type === item.frontmatter.title) {
+								return <FacilityInfo data={data.info} />;
+							}
+						})}
+				</EateryFacilityWrapper>
+			);
 		})
 	}
 </Layout>
+
+<style lang="scss">
+	@import '@styles/config';
+	.facility {
+		@include underline(
+			$__width: 6rem,
+			$__margin: 0 0 120px 0,
+			$__bottom: calc(-50px + 1px)
+		);
+	}
+
+	.shop-content {
+		margin-bottom: 50px;
+	}
+</style>

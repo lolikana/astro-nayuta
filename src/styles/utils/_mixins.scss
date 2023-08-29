@@ -109,14 +109,14 @@ $__breakpoints: (
 		$__spread #c2c6c6;
 }
 
-@mixin small-underline($__margin: 0 0 60px 0, $__bottom: calc(-30px + 1px)) {
+@mixin underline($__width: 2rem, $__margin: 0 0 60px 0, $__bottom: calc(-30px + 1px)) {
 	position: relative;
 	margin: $__margin;
 	&::after {
 		content: '';
 		position: absolute;
 		left: 0;
-		width: 2rem;
+		width: $__width;
 		height: 1px;
 		background-color: $__primary;
 		bottom: $__bottom;

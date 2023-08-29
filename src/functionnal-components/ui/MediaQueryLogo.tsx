@@ -4,7 +4,11 @@ import type { FC } from 'react';
 const logoSize = (
 	title: string
 ): { mobileWidth: string; desktopWidth: string } | void => {
-	if (title.includes('Sui') || title.includes('flower place gift')) {
+	if (
+		title.includes('Sui') ||
+		title.includes('flower place gift') ||
+		title.includes('Book Station DIVE')
+	) {
 		return { mobileWidth: '150', desktopWidth: '220' };
 	}
 	if (title.includes('ひとやすみ')) {
@@ -14,7 +18,9 @@ const logoSize = (
 		title.includes('cafe letter') ||
 		title.includes('Juice bar Delight') ||
 		title.includes('marche acoustic') ||
-		title.includes('boutique present')
+		title.includes('boutique present') ||
+		title.includes('Rental Space another') ||
+		title.includes('Tent Sauna THE VANISH')
 	) {
 		return { mobileWidth: '220', desktopWidth: '410' };
 	}

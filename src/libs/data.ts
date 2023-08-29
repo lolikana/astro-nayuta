@@ -1,4 +1,4 @@
-import type { TCafeMenu, TRestaurantMenu } from './types';
+import type { TCafeMenu, TFacilityType, TRestaurantMenu } from './types';
 
 export const restaurantMenuData: TRestaurantMenu[] = [
 	{
@@ -295,6 +295,192 @@ export const cafeMenuData: TCafeMenu[] = [
 		addInfo: [
 			'※ 上記価格は全て税込(10%)です。',
 			'※ ホットドリンクのテイクアウトは紙コップ(¥0)にて提供いたします。'
+		]
+	}
+];
+
+export const facilitiesData: TFacilityType[] = [
+	{
+		type: 'Rental Space another',
+		info: [
+			{
+				title: 'ご予約に関して',
+				informations: [
+					{
+						subTitle: '予約方法',
+						texts: [
+							'お電話、もしくは下記リンク先のページより、SPACE MARKETの予約フォームをご利用ください。'
+						],
+						button: {
+							text: 'another 予約リンク一覧',
+							link: '/another'
+						}
+					}
+				]
+			},
+			{
+				title: 'ご利用に関して',
+				informations: [
+					{
+						subTitle: '予約方法',
+						texts: ['お電話か、SPACE MARKETより承ります。', 'Tel 092 - 410 - 3309']
+					},
+					{
+						subTitle: '営業時間',
+						texts: ['10:00 〜 17:00', '(最終利用開始時間 16:00)']
+					},
+
+					{
+						subTitle: '利用料金',
+						texts: [
+							'部屋タイプごとに料金設定しております。',
+							'(収容人数 : 12名〜、料金 : 1,100円/1h〜)',
+							'詳細は下記リンクよりPDFをご覧ください。'
+						],
+						button: {
+							text: 'another 利用料金表',
+							link: '/pdf/another.pdf',
+							pdf: true
+						}
+					},
+
+					{
+						subTitle: '常備品',
+						texts: [
+							'テーブル、椅子、ハンガーラック',
+							'電源タップ、Wi-Fi',
+							'その他備品レンタルに関しては別途料金にて承ります。ご予約時にご確認ください。',
+							'※ 当施設に準備のない設備・物品はお客様にてご用意ください。'
+						]
+					},
+
+					{
+						subTitle: '持ち込みについて',
+						texts: [
+							'飲料(酒類を除く)のみとさせていただきます。',
+							'(施設内販売品のテイクアウトでの持ち込み可)'
+						]
+					},
+
+					{
+						subTitle: '禁止事項',
+						texts: ['飲酒、喫煙、各部屋の「用途」以外の利用']
+					},
+
+					{
+						subTitle: 'キャンセルポリシー',
+						texts: [
+							'ご予約のキャンセルに関する規定は以下の通りです。',
+							'ご利用14日前より下記キャンセル料が発生いたします。'
+						],
+						rules: [
+							{
+								limit: '・ご利用日の14日前〜8日前',
+								price: '利用料金の50%'
+							},
+
+							{
+								limit: '・ご利用日の7日前〜4日前',
+								price: '利用料金の80%'
+							},
+
+							{
+								limit: '・ご利用日の3日前〜利用日当日',
+								price: '利用料金の100%'
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	{
+		type: 'Tent Sauna THE VANISH',
+		info: [
+			{
+				title: 'ご予約に関して',
+				informations: [
+					{
+						subTitle: '予約方法',
+						texts: [
+							'お電話、もしくは下記リンク先のページより、SPACE MARKETの予約フォームをご利用ください。'
+						],
+						button: {
+							text: 'THE VANISH 予約リンク一覧',
+							link: '/the-vanish'
+						}
+					}
+				]
+			},
+			{
+				title: 'ご利用に関して',
+				informations: [
+					{
+						subTitle: '予約方法',
+						texts: ['お電話か、SPACE MARKETより承ります。', 'Tel 092 - 410 - 3309']
+					},
+
+					{
+						subTitle: '営業時間',
+						texts: ['10:00　〜　17:00', '(最終利用開始時間 16:00)']
+					},
+
+					{
+						subTitle: '利用料金',
+						texts: ['テント 1張', '　1時間　3,300円 (6名様まで一律料金)']
+					},
+
+					{
+						subTitle: 'サービス内容',
+						texts: [
+							'テントサウナの器材貸し出しと場所の提供。',
+							'※スタッフがテント設営、火おこし、片付けなどのお手伝いをさせていただきます。',
+							'※悪天候により急遽中止する場合がございます。'
+						]
+					},
+
+					{
+						subTitle: '常備品',
+						texts: [
+							'サウナ用テント、サウナ用薪ストーブ、薪、バーナー、耐熱グローブ、火バサミ、火消し壺、ロウリュウセット一式、サウナストーン、温度計、砂時計、着替え用テント、シャワー室、木製チェア類、貴重品入れ、ウォーターサーバー&コップ'
+						]
+					},
+
+					{
+						subTitle: '貸し出し品',
+						texts: [
+							'ドライヤー、サンダル',
+							'※サウナ用の着衣(水着等)、タオル、アメニティグッズ類はお客様にてご用意ください。'
+						]
+					},
+					{
+						subTitle: '持ち込みについて',
+						texts: [
+							'飲料(酒類を除く)のみとさせていただきます。',
+							'(施設内販売品のテイクアウトでの持ち込み可)'
+						]
+					},
+
+					{
+						subTitle: '禁止事項',
+						texts: ['飲酒、喫煙']
+					},
+
+					{
+						subTitle: 'キャンセルポリシー',
+						texts: [
+							'ご予約のキャンセルに関する規定は以下の通りです。',
+							'ご利用日当日より下記キャンセル料が発生いたします。'
+						],
+						rules: [
+							{
+								limit: '・ご利用日当日',
+								price: '利用料金の100%'
+							}
+						]
+					}
+				]
+			}
 		]
 	}
 ];

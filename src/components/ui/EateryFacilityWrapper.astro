@@ -7,12 +7,14 @@ import type { CollectionEntry } from 'astro:content';
 
 type Props = {
 	item: TEatery | CollectionEntry<'facilities'>['data'];
+	class: string;
 };
 
 const { item } = Astro.props;
+const { class: facility } = Astro.props;
 ---
 
-<article class="shops small-text">
+<article class:list={['shops small-text', facility]}>
 	<div class="shops__logo">
 		<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
 	</div>
@@ -55,7 +57,8 @@ const { item } = Astro.props;
 
 	@include mq(md) {
 		.shops {
-			margin: 230px;
+			width: 470px;
+			margin: 230px auto;
 			align-items: center;
 			text-align: center;
 		}

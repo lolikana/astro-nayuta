@@ -1,11 +1,9 @@
-export type TEatery = {
+type TEateryFacilityCommon = {
 	image: {
 		url: string;
-		height: number;
-		width: number;
 	};
 	title: string;
-	floor: ['1F' | '2F'];
+	floor: ['1F' | '2F', 'Outdoor'];
 	sns: ['Twitter' | 'Instagram'];
 	instagramUrl: string;
 	instagramName: string;
@@ -13,6 +11,13 @@ export type TEatery = {
 	twitterName: string;
 	dayOff: ['日' | '月' | '火' | '水' | '木' | '金' | '土'] | [];
 	businessInfo?: string;
+};
+
+export type TEatery = TEateryFacilityCommon & {
+	image: {
+		height: number;
+		width: number;
+	};
 	dietaries: ['Vegan' | 'Muslim Friendly' | 'Lacto-ovo Vegetarian'];
 	vegewelUrl?: string;
 	addInfo?: string;
@@ -47,17 +52,22 @@ export type TCafeMenu = {
 	addInfo?: string[];
 };
 
-export type TFacility = {
-	image: {
-		url: string;
-	};
+export type TFacility = TEateryFacilityCommon;
+
+export type TFacilityInfo = {
 	title: string;
-	floor: ['1F' | '2F'];
-	sns: ['Twitter' | 'Instagram'];
-	instagramUrl: string;
-	instagramName: string;
-	twitterUrl?: string;
-	twitterName: string;
-	dayOff: ['日' | '月' | '火' | '水' | '木' | '金' | '土'] | [];
-	businessInfo?: string;
+	informations: {
+		subTitle: string;
+		texts: string[];
+		button?: { text: string; link: string; pdf?: boolean };
+		rules?: {
+			limit: string;
+			price: string;
+		}[];
+	}[];
+};
+
+export type TFacilityType = {
+	type: 'Tent Sauna THE VANISH' | 'Rental Space another';
+	info: TFacilityInfo[];
 };

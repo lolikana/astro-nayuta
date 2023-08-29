@@ -26,18 +26,22 @@ This project is a strategic endeavor aimed at honing my development skills and g
 6. **Navigating Challenges for Growth**: Similar to any project, there will be obstacles to overcome. Triumphing over these challenges serves as an avenue to enhance problem-solving skills and broaden my expertise.
 
 ## Setting Up the Development Environment
+
 To ensure a smooth project development process, the following tools and configurations are employed:
 
 ### Astro Configuration
+
 Astro's configuration is meticulously set up to optimize the project's performance and facilitate efficient code organization. The project's <code>astro.config.mjs</code> file includes the necessary settings for asset optimization, layout configuration, and other Astro-specific options.
 
 ### TypeScript Integration
+
 The project is built with TypeScript, enhancing codebase reliability and enabling better code completion and error handling. The <code>tsconfig.json</code> file houses the TypeScript configuration, specifying compilation options and type definitions.
 
 ### Code Quality Tools
+
 <code>ESLint</code> and <code>Prettier</code>: These tools collaborate to enforce consistent code style and formatting. The <code>.eslintrc.cjs</code> and <code>.prettierrc</code> files contain configuration settings for ESLint and Prettier.
 
-<code>lint-staged</code> and <code>husky</code>: These tools are employed to ensure code quality by running linting and formatting checks on staged files before commits. 
+<code>lint-staged</code> and <code>husky</code>: These tools are employed to ensure code quality by running linting and formatting checks on staged files before commits.
 
 These tools work collaboratively to maintain a high level of code quality, ensuring uniformity, readability, and adherence to best practices.
 
