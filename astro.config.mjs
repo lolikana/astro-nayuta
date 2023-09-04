@@ -18,7 +18,8 @@ export default defineConfig({
 				'@libs': '/src/libs',
 				'@api': '/src/api',
 				'@styles': '/src/styles',
-				'@scripts': '/src/scripts'
+				'@scripts': '/src/scripts',
+				'@assets': '/src/assets'
 			}
 		}
 	},
