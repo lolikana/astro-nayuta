@@ -9,9 +9,7 @@ export default defineConfig({
 		})
 	],
 	build: {
-		inlineStylesheets: 'auto',
-		site: 'https://lolikana.github.io',
-		base: '/astro-nayuta'
+		inlineStylesheets: 'auto'
 	},
 	vite: {
 		resolve: {
@@ -32,5 +30,7 @@ export default defineConfig({
 	image: {
 		domains: ['astro.build', 'images.microcms-assets.io'],
 		remotePatterns: [{ protocol: 'https' }]
-	}
+	},
+	site: import.meta.env.PROD ? 'https://lolikana.github.io' : undefined,
+	base: import.meta.env.PROD ? '/astro-nayuta' : undefined
 });
