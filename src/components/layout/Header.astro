@@ -1,5 +1,6 @@
 ---
-import NayutaLogo from '/logo/nayuta__logo.svg';
+import NayutaLogo from '@assets/logo/nayuta__logo.svg';
+import { Image } from 'astro:assets';
 
 import Navbar from './Navbar.astro';
 ---
@@ -7,7 +8,7 @@ import Navbar from './Navbar.astro';
 <header class="header">
 	<div class="header__logo">
 		<a href="/astro-nayuta/">
-			<img src={NayutaLogo} alt="logo nayuta" />
+			<Image src={NayutaLogo} alt="logo nayuta" width={60} height={26} />
 		</a>
 	</div>
 	<div class="header__nav">

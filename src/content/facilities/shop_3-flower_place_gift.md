@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "/astro-nayuta/logo/flower_place_gift__logo.svg"
+	url: "./src/assets/logo/flower_place_gift__logo.svg"
 	}
 title: "flower place gift"
 sns: ["Instagram"]

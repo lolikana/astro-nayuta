@@ -1,6 +1,6 @@
 ---
 image: {
-		url: "/astro-nayuta/logo/marche_acoustic__logo.svg"
+		url: "./src/assets/logo/marche_acoustic__logo.svg"
 		}
 title: "marche acoustic"
 sns: ["Instagram"]

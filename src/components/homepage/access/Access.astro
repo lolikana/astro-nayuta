@@ -1,7 +1,7 @@
 ---
+import AccessMap from '@assets/images/homepage/AccessMap__Desktop.svg';
 import HPArticleWrapper from '@components/ui/HPArticleWrapper.astro';
-
-import AccessMap from '/images/homepage/AccessMap__Desktop.svg';
+import { Image } from 'astro:assets';
 
 import { accessData } from './../datas';
 import AccessItem from './AccessItem.astro';
@@ -23,7 +23,14 @@ import BusinessWeek from './BusinessWeek.astro';
 			</li>
 		</ul>
 	</HPArticleWrapper>
-	<img class="access__map" src={AccessMap} alt="access map to nayuta" />
+	<Image
+		class="access__map"
+		src={AccessMap}
+		alt="access map to nayuta"
+		width={100}
+		height={100}
+		format="webp"
+	/>
 </article>
 
 <style lang="scss">

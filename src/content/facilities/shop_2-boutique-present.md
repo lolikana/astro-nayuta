@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "/astro-nayuta/logo/boutique_present__logo.svg"
+	url: "./src/assets/logo/boutique_present__logo.svg"
 	}
 title: "boutique present"
 sns: ["Instagram"]

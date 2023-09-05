@@ -1,5 +1,6 @@
 ---
-import HomepageLandscape from '/images/homepage/main_image.webp';
+import HomepageLandscape from '@assets/images/homepage/main_image.webp';
+import { Image } from 'astro:assets';
 ---
 
 <section class="section">
@@ -9,10 +10,13 @@ import HomepageLandscape from '/images/homepage/main_image.webp';
 		</h1>
 	</div>
 	<div class="section__image">
-		<img
+		<Image
 			class="section__image_img"
 			src={HomepageLandscape}
 			alt="Home page image of nature"
+			fetchpriority={'high'}
+			width={2000}
+			height={645}
 		/>
 		<div class="section__image_scroll small-text"></div>
 	</div>
@@ -68,7 +72,7 @@ import HomepageLandscape from '/images/homepage/main_image.webp';
 		margin: 0 calc(50% - 50vw);
 		flex: 1;
 
-		animation: 3s linear forwards opacityAnimation;
+		// animation: 3s linear forwards opacityAnimation;
 	}
 
 	.section__image_img {

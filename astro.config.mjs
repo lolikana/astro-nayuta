@@ -3,7 +3,11 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [react()],
+	integrations: [
+		react({
+			include: ['**/react/*']
+		})
+	],
 	build: {
 		inlineStylesheets: 'auto'
 	},
@@ -22,6 +26,10 @@ export default defineConfig({
 				'@assets': '/src/assets'
 			}
 		}
+	},
+	image: {
+		domains: ['astro.build', 'images.microcms-assets.io'],
+		remotePatterns: [{ protocol: 'https' }]
 	},
 	site: 'https://lolikana.github.io',
 	base: '/astro-nayuta'

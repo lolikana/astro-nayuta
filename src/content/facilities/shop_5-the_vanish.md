@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "/astro-nayuta/logo/the_vanish__logo.svg"
+	url: "./src/assets/logo/the_vanish__logo.svg"
 	}
 title: "Tent Sauna THE VANISH"
 sns: ["Instagram"]

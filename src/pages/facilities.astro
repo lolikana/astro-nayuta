@@ -13,14 +13,14 @@ const allFacilities = await Astro.glob<TFacility>('../content/facilities/*.md');
 	<PageTitle titleJa="販売店、貸し施設ご紹介" titleEn="introduce shops and facilities" />
 	{
 		allFacilities.map(item => {
-			const { Content } = item;
+			const { Content, frontmatter } = item;
 			const isAnotherOrVanish =
-				item.frontmatter.title === 'Tent Sauna THE VANISH' ||
-				item.frontmatter.title === 'Rental Space another';
+				frontmatter.title === 'Tent Sauna THE VANISH' ||
+				frontmatter.title === 'Rental Space another';
 
 			return (
 				<EateryFacilityWrapper
-					item={item.frontmatter}
+					item={frontmatter}
 					class={isAnotherOrVanish ? '' : 'facility'}
 				>
 					<div class="shop-content">
@@ -28,7 +28,7 @@ const allFacilities = await Astro.glob<TFacility>('../content/facilities/*.md');
 					</div>
 					{isAnotherOrVanish &&
 						facilitiesData.map(data => {
-							if (data.type === item.frontmatter.title) {
+							if (data.type === frontmatter.title) {
 								return <FacilityInfo data={data.info} />;
 							}
 						})}

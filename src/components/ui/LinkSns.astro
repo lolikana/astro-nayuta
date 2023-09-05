@@ -1,8 +1,11 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 type Props = {
 	text: string;
 	link: string | undefined;
-	image: string;
+	image: ImageMetadata;
 	imageAlt: string;
 };
 const { text, link, image, imageAlt } = Astro.props;
@@ -10,7 +13,13 @@ const { text, link, image, imageAlt } = Astro.props;
 
 <a class="link link-border" href={link}>
 	<p class="link__text">{text}</p>
-	<img class="link__image" src={image} alt={`logo ${imageAlt}`} />
+	<Image
+		class="link__image"
+		src={image}
+		alt={`logo ${imageAlt}`}
+		width={21}
+		height={21}
+	/>
 </a>
 
 <style lang="scss">
@@ -34,7 +43,8 @@ const { text, link, image, imageAlt } = Astro.props;
 		&::after {
 			content: '';
 			display: block;
-			background: url('/icons/chevron_right_FILL0_wght400_GRAD0_opsz48.svg') no-repeat;
+			background: url('@assets/icons/chevron_right_FILL0_wght400_GRAD0_opsz48.svg')
+				no-repeat;
 			background-size: 25px 25px;
 			width: 25px;
 			height: 25px;

@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "/astro-nayuta/logo/dive__logo.svg"
+	url: "./src/assets/logo/dive__logo.svg"
 	}
 title: "Book Station DIVE
 "

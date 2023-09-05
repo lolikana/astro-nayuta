@@ -1,8 +1,11 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
 type Props = {
 	type: 'sns' | 'maeda';
 	link: string;
-	image: string;
+	image: ImageMetadata;
 	altImage: string;
 };
 
@@ -11,7 +14,7 @@ const { type, link, image, altImage } = Astro.props;
 
 <div class={`${type === 'sns' ? 'logo__sns' : 'logo__maeda'}`}>
 	<a href={link}>
-		<img src={image} alt={`logo ${altImage}`} />
+		<Image src={image} alt={`logo ${altImage}`} width={21} height={21} />
 	</a>
 </div>
 
