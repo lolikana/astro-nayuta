@@ -11,10 +11,10 @@ type Props = {
 };
 
 const { item } = Astro.props;
-const { class: facility } = Astro.props;
+const { class: facility, ...attributes } = Astro.props;
 ---
 
-<article class:list={['shops small-text', facility]}>
+<article class:list={['shops small-text', facility]} {...attributes}>
 	<div class="shops__logo">
 		<MediaQueryLogo imgUrl={item.image.url} title={item.title} />
 	</div>
