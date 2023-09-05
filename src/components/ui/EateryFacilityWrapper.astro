@@ -16,7 +16,7 @@ const { class: facility } = Astro.props;
 
 <article class:list={['shops small-text', facility]}>
 	<div class="shops__logo">
-		<MediaQueryLogo client:load imgUrl={item.image.url} title={item.title} />
+		<MediaQueryLogo imgUrl={item.image.url} title={item.title} />
 	</div>
 	<h2 class="shops__title">{item.title}</h2>
 	<div class="shops__sns">

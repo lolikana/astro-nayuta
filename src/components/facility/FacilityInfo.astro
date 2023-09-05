@@ -23,7 +23,9 @@ const { data } = Astro.props;
 								))}
 								{information.button && (
 									<li class="info__button">
-										<a href={`/astro-nayuta/`}>{information.button?.text}</a>
+										<a href={import.meta.env.PROD ? '/astro-nayuta/' : '/'}>
+											{information.button?.text}
+										</a>
 									</li>
 								)}
 								{information.rules &&

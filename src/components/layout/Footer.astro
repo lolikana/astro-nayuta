@@ -9,7 +9,10 @@ import FooterLogo from '@components/ui/FooterLogo.astro';
 	<FooterLogo type="sns" link={'#_blank'} image={InstagramLogo} altImage={'instagram'} />
 	<FooterLogo type="sns" link={'#_blank'} image={TwitterLogo} altImage={'twitter'} />
 	<div>
-		<a href="/astro-nayuta/privacy-policy" class="link-underline">プライバシーポリシー</a>
+		<a
+			href={`${import.meta.env.PROD ? '/astro-nayuta' : ''}/privacy-policy`}
+			class="link-underline">プライバシーポリシー</a
+		>
 	</div>
 	<div>
 		<FooterLogo

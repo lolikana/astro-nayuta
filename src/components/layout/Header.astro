@@ -7,7 +7,7 @@ import Navbar from './Navbar.astro';
 
 <header class="header">
 	<div class="header__logo">
-		<a href="/astro-nayuta/">
+		<a href={`${import.meta.env.PROD ? '/astro-nayuta' : ''}/`}>
 			<Image src={NayutaLogo} alt="logo nayuta" width={60} height={26} />
 		</a>
 	</div>
