@@ -3,6 +3,7 @@ import '@styles/main.scss';
 
 import Footer from '@components/layout/Footer.astro';
 import Header from '@components/layout/Header.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 type Props = {
 	headTitle: string;
@@ -25,6 +26,7 @@ const { headTitle } = Astro.props;
 			rel="stylesheet"
 		/>
 		<title>{headTitle}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<Header />
