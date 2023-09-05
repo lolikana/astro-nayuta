@@ -11,6 +11,7 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: 'auto'
 	},
+	scopedStyleStrategy: 'where',
 	vite: {
 		resolve: {
 			alias: {
