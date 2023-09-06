@@ -4,32 +4,30 @@ import EateryFacilityWrapper from '@components/ui/EateryFacilityWrapper.astro';
 import PageTitle from '@components/ui/PageTitle.astro';
 import Layout from '@layouts/Layout.astro';
 import { facilitiesData } from '@libs/data';
-import type { TFacility } from '@libs/types';
+import { getCollection, getEntry } from 'astro:content';
 
-const allFacilities = await Astro.glob<TFacility>('../content/facilities/*.md');
+const allFacilities = await getCollection('facilities');
 ---
 
 <Layout headTitle={'販売店、貸し施設ご紹介'}>
 	<PageTitle titleJa="販売店、貸し施設ご紹介" titleEn="introduce shops and facilities" />
 	{
-		allFacilities.map(item => {
-			const { Content, frontmatter } = item;
+		allFacilities.map(async item => {
+			const { data } = item;
+			const entry = await getEntry('facilities', item.slug);
+			const { Content } = await entry.render();
 			const isAnotherOrVanish =
-				frontmatter.title === 'Tent Sauna THE VANISH' ||
-				frontmatter.title === 'Rental Space another';
+				data.title === 'Tent Sauna THE VANISH' || data.title === 'Rental Space another';
 
 			return (
-				<EateryFacilityWrapper
-					item={frontmatter}
-					class={isAnotherOrVanish ? '' : 'facility'}
-				>
+				<EateryFacilityWrapper item={data} class={isAnotherOrVanish ? '' : 'facility'}>
 					<div class="shop-content">
 						<Content />
 					</div>
 					{isAnotherOrVanish &&
-						facilitiesData.map(data => {
-							if (data.type === frontmatter.title) {
-								return <FacilityInfo data={data.info} />;
+						facilitiesData.map(facility => {
+							if (facility.type === data.title) {
+								return <FacilityInfo data={facility.info} />;
 							}
 						})}
 				</EateryFacilityWrapper>
