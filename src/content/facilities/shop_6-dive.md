@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "./src/assets/logo/dive__logo.svg"
+	url: "./../../assets/logo/dive__logo.svg"
 	}
 title: "Book Station DIVE
 "

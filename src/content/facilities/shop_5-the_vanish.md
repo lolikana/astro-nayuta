@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "./src/assets/logo/the_vanish__logo.svg"
+	url: "./../../assets/logo/the_vanish__logo.svg"
 	}
 title: "Tent Sauna THE VANISH"
 sns: ["Instagram"]

@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "./src/assets/logo/another__logo.svg"
+	url: "./../../assets/logo/another__logo.svg"
 	}
 title: "Rental Space another"
 sns: ["Instagram"]

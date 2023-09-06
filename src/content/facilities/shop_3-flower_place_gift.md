@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "./src/assets/logo/flower_place_gift__logo.svg"
+	url: "./../../assets/logo/flower_place_gift__logo.svg"
 	}
 title: "flower place gift"
 sns: ["Instagram"]

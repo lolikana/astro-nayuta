@@ -1,6 +1,6 @@
 ---
 image: {
-	url: "./src/assets/logo/boutique_present__logo.svg"
+	url: "./../../assets/logo/boutique_present__logo.svg"
 	}
 title: "boutique present"
 sns: ["Instagram"]

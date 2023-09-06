@@ -27,20 +27,28 @@ const logoSize = (
 };
 
 type Props = {
-	imgUrl: string;
+	imgUrl:
+		| string
+		| {
+				src: string;
+				height: number;
+				width: number;
+				format: 'svg' | 'jpeg' | 'jpg' | 'png' | 'tiff' | 'webp' | 'gif';
+		  };
 	title: string;
 };
 
 const MediaQueryLogo: FC<Props> = props => {
 	const { imgUrl, title } = props;
 	const { mobile } = useBreakPoint();
-
 	const width = mobile
 		? `${logoSize(title)?.mobileWidth}px`
 		: `${logoSize(title)?.desktopWidth}px`;
 
+	const src = typeof imgUrl === 'string' ? imgUrl : imgUrl.src;
+
 	return (
-		<img src={imgUrl} alt={`logo of ${title}`} loading="lazy" style={{ width: width }} />
+		<img src={src} alt={`logo of ${title}`} loading="lazy" style={{ width: width }} />
 	);
 };
 

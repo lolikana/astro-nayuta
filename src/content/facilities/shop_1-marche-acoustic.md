@@ -1,6 +1,6 @@
 ---
 image: {
-		url: "./src/assets/logo/marche_acoustic__logo.svg"
+		url: "./../../assets/logo/marche_acoustic__logo.svg"
 		}
 title: "marche acoustic"
 sns: ["Instagram"]
