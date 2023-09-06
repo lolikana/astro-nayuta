@@ -3,13 +3,13 @@ type TEateryFacilityCommon = {
 		url: string;
 	};
 	title: string;
-	floor: ['1F' | '2F', 'Outdoor'];
-	sns: ['Twitter' | 'Instagram'];
+	floor: '1F' | '2F' | 'Outdoor';
+	sns: ('Twitter' | 'Instagram')[];
 	instagramUrl: string;
 	instagramName: string;
 	twitterUrl?: string;
 	twitterName: string;
-	dayOff: ['日' | '月' | '火' | '水' | '木' | '金' | '土'] | [];
+	dayOff: ('日' | '月' | '火' | '水' | '木' | '金' | '土')[];
 	businessInfo?: string;
 };
 
@@ -18,7 +18,7 @@ export type TEatery = TEateryFacilityCommon & {
 		height: number;
 		width: number;
 	};
-	dietaries: ['Vegan' | 'Muslim Friendly' | 'Lacto-ovo Vegetarian'];
+	dietaries: ('Vegan' | 'Muslim Friendly' | 'Lacto-ovo Vegetarian')[];
 	vegewelUrl?: string;
 	addInfo?: string;
 	tableCheckUrl: string;
