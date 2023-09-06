@@ -1,47 +1,59 @@
-# Astro Starter Kit: Minimal
+# Company Website Clone with Astro
 
-```
-npm create astro@latest -- --template minimal
-```
+## Project Rationale
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+This project is a strategic endeavor aimed at honing my development skills and gaining a comprehensive understanding of various cutting-edge technologies. The central objective of this undertaking is to meticulously recreate and replicate our company's current website (<a href="https://nayuta.earth/" target="_blanck">Nayuta website</a>) made with NextJS utilizing the Astro framework. This initiative also involves seamlessly integrating additional technologies such as React, TypeScript, Sass, and microCMS.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Technology Stack
 
-## 🚀 Project Structure
+- Astro/React
+- TypeScript
+- Sass
+- microCMS
 
-Inside of your Astro project, you'll see the following folders and files:
+## Motivation for Cloning the Company Website
 
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. **Practical Skill Application**: This initiative offers a pragmatic platform to put into practice the acquired knowledge in web development. The hands-on approach enables me to work on an actual project with tangible outcomes.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+2. **Astro Proficiency**: The adoption of the Astro framework enables me to master this contemporary approach to web development. The amalgamation of static site generation and seamless integration of components from different frameworks equips me with the ability to optimize performance and accelerate development.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+3. **Synergistic Technology Blend**: By fusing technologies like React, TypeScript, and Sass, I am fostering an in-depth comprehension of their harmonious coexistence. This synthesis will amplify my expertise in front-end development and augment my proficiency in crafting dynamic, visually appealing user interfaces.
 
-Any static assets, like images, can be placed in the `public/` directory.
+4. **Content Management Made Effortless**: Incorporating microCMS into the project empowers me to seamlessly manage and update website content. This experience in linking a content management system with a front-end application enriches my repertoire for future projects.
 
-## 🧞 Commands
+5. **Elevating Best Practices**: Throughout the course of this endeavor, I am committed to adhering to coding best practices, maintaining meticulous project organization, and exhibiting prowess in version control. This discipline ensures that my coding standards are aligned with the industry's gold standard.
 
-All commands are run from the root of the project, from a terminal:
+6. **Navigating Challenges for Growth**: Similar to any project, there will be obstacles to overcome. Triumphing over these challenges serves as an avenue to enhance problem-solving skills and broaden my expertise.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Setting Up the Development Environment
 
-## 👀 Want to learn more?
+To ensure a smooth project development process, the following tools and configurations are employed:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Astro Configuration
+
+Astro's configuration is meticulously set up to optimize the project's performance and facilitate efficient code organization. The project's <code>astro.config.mjs</code> file includes the necessary settings for asset optimization, layout configuration, and other Astro-specific options.
+
+### TypeScript Integration
+
+The project is built with TypeScript, enhancing codebase reliability and enabling better code completion and error handling. The <code>tsconfig.json</code> file houses the TypeScript configuration, specifying compilation options and type definitions.
+
+### Code Quality Tools
+
+<code>ESLint</code> and <code>Prettier</code>: These tools collaborate to enforce consistent code style and formatting. The <code>.eslintrc.cjs</code> and <code>.prettierrc</code> files contain configuration settings for ESLint and Prettier.
+
+<code>lint-staged</code> and <code>husky</code>: These tools are employed to ensure code quality by running linting and formatting checks on staged files before commits.
+
+These tools work collaboratively to maintain a high level of code quality, ensuring uniformity, readability, and adherence to best practices.
+
+## Project Anticipations
+
+Upon the culmination of this initiative, I envisage attaining the following objectives:
+
+- Mastery in utilizing the Astro framework for seamless front-end development.
+- A deeper insight into the art of integrating diverse technologies, encompassing React and TypeScript.
+- Elevated adeptness in utilizing Sass to finesse styling and cultivate a coherent design language.
+- Proficiency in interconnecting a front-end application with a content management system (microCMS).
+- Enhanced grasp of industry best practices encompassing coding, version control, and project structuring.
+- Heightened self-assurance in navigating real-world web development projects in the ever-evolving landscape.
+
+This undertaking serves as a testament to my commitment to excellence in web development, showcasing my ability to replicate and enrich existing websites whilst upholding industry standards and best practices. The culmination of this project not only amplifies my technical prowess but also serves as a cornerstone of my journey to becoming a seasoned web developer.

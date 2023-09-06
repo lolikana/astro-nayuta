@@ -1,0 +1,27 @@
+---
+
+---
+
+<h3 class="menus__title">MENU</h3>
+<div class="menus__container container-line">
+	<div class="menus__container_wrapper">
+		<slot />
+	</div>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.menus__title {
+		font-size: $__font11;
+		text-align: left;
+	}
+
+	.menus__container_wrapper {
+		padding: 30px 0 80px;
+
+		@include mq(md) {
+			padding-top: 50px;
+		}
+	}
+</style>

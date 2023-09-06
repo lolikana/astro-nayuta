@@ -1,1 +1,149 @@
+@import './config.scss';
+
 @import './reset';
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	position: relative;
+	min-width: 375px;
+	max-width: 1600px;
+	@include mq(custom375) {
+		overflow-x: hidden;
+	}
+	overflow-x: visible;
+	margin: 0 auto;
+	font-family:
+		'Noto Sans JP',
+		sans-serif,
+		system-ui,
+		-apple-system,
+		Roboto,
+		sans-serif;
+
+	color: $__main;
+	font-size: $__font12;
+	font-weight: 300;
+	line-height: 24px;
+	letter-spacing: 0.1em;
+
+	@include mq(md) {
+		font-size: $__font16;
+	}
+}
+
+main {
+	padding-inline: $__mobile__padding;
+	margin: 0 auto;
+
+	@include mq(md) {
+		padding-inline: $__desktop__padding;
+		margin-top: calc($__desktop__headerHeight + $__header__paddingBottom);
+	}
+}
+
+.big-title {
+	font-size: $__font16;
+	line-height: 26px;
+
+	@include mq(md) {
+		font-size: $__font24;
+		line-height: 35px;
+	}
+}
+
+.small-title {
+	font-size: $__font18;
+}
+
+.small-text {
+	font-size: $__font12;
+
+	@include mq(md) {
+		font-size: $__font14;
+	}
+}
+
+.medium-text {
+	font-size: $__font14;
+
+	@include mq(md) {
+		font-size: $__font16;
+	}
+}
+
+.break-line {
+	white-space: -moz-pre-wrap; /* Firefox */
+	white-space: -pre-wrap; /* ancient Opera */
+	white-space: -o-pre-wrap; /* newer Opera */
+	white-space: pre-wrap; /* Chrome; W3C standard */
+	word-wrap: break-word; /* IE */
+}
+
+.container-line {
+	position: relative;
+	&::before,
+	&::after {
+		content: '';
+		width: 100%;
+		height: 1px;
+		background-color: $__primary;
+		position: absolute;
+		left: 0;
+	}
+}
+
+.section-template {
+	margin-top: 90px;
+}
+
+.shop-content {
+	ul {
+		@include mq(md) {
+			width: 150px;
+			margin: 0 auto;
+			text-align: start;
+		}
+	}
+
+	li {
+		&::before {
+			content: '・';
+			font-size: 1.5rem;
+			vertical-align: middle;
+		}
+	}
+}
+
+@include mq(md) {
+	.link-border {
+		transition: outline 250ms ease;
+		outline: 1px solid transparent;
+		&:hover {
+			outline: 1px solid $__primary;
+		}
+	}
+
+	.link-underline {
+		position: relative;
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: $__primary;
+			scale: 0 0;
+			transition: scale 250ms ease;
+		}
+
+		&:hover::after {
+			scale: 1 1;
+		}
+	}
+}

@@ -1,0 +1,81 @@
+---
+import FirstFloorMap from '@assets/images/homepage/1F_floor.svg';
+import SecondFloorMap from '@assets/images/homepage/2F_floor.svg';
+import { Image } from 'astro:assets';
+
+import type { TFloorMapData } from './../types';
+import FloorMapDetailItem from './FloorMapDetailItem.astro';
+
+const { floor, details, additional } = Astro.props as TFloorMapData;
+---
+
+<div class="floor">
+	<h2 class="floor__title big-title">{floor}</h2>
+	<div class="floor__wrapper">
+		<div class="floor__wrapper_image">
+			<Image
+				src={floor === '1F' ? FirstFloorMap : SecondFloorMap}
+				alt=""
+				width={100}
+				height={100}
+			/>
+		</div>
+		<FloorMapDetailItem
+			class="floor__wrapper_list"
+			details={details}
+			additional={additional}
+		/>
+	</div>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.floor:not(:last-child) {
+		margin-bottom: 100px;
+	}
+
+	.floor__title {
+		margin-bottom: 32px;
+		font-weight: $__medium;
+	}
+
+	.floor__wrapper_image {
+		margin-bottom: 75px;
+	}
+
+	.floor__wrapper_list {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	@include mq(md) {
+		.floor:not(:last-child) {
+			margin-bottom: 130px;
+		}
+
+		.floor__wrapper {
+			display: flex;
+			gap: 8%;
+		}
+
+		.floor__wrapper_image,
+		.floor__wrapper_list {
+			flex: 1;
+		}
+
+		.floor__wrapper_image {
+			position: relative;
+			margin-bottom: 0;
+			img {
+				position: sticky;
+				top: $__desktop__headerHeight;
+			}
+		}
+
+		.floor__wrapper_list {
+			gap: 70px;
+		}
+	}
+</style>

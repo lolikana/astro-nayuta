@@ -4,11 +4,13 @@ $__breakpoints: (
 	md: 'screen and (min-width: 768px)',
 	lg: 'screen and (min-width: 992px)',
 	xl: 'screen and (min-width: 1280px)',
+	custom375: 'screen and (min-width: 375px)',
 	custom600: 'screen and (min-width: 600px)',
 	custom700: 'screen and (min-width: 700px)',
 	custom900: 'screen and (min-width: 900px)',
 	custom1024: 'screen and (min-width: 1024px)',
 	custom1440: 'screen and (min-width: 1440px)',
+	custom1600: 'screen and (min-width: 1600px)',
 	safari: 'screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)'
 ) !default;
 
@@ -105,6 +107,24 @@ $__breakpoints: (
 		$__verticaloffset $__color,
 		$blur $__color,
 		$__spread #c2c6c6;
+}
+
+@mixin underline($__width: 2rem, $__margin: 0 0 60px 0, $__bottom: calc(-30px + 1px)) {
+	position: relative;
+	margin: $__margin;
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: $__width;
+		height: 1px;
+		background-color: $__primary;
+		bottom: $__bottom;
+		@include mq(md) {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
 }
 
 /** Extends **/

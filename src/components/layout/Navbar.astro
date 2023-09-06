@@ -1,0 +1,47 @@
+---
+const prodLink = import.meta.env.PROD ? '/astro-nayuta' : '';
+---
+
+<nav class="nav">
+	<ul class="nav__list">
+		<li class="nav__list_item">
+			<a class="link-border" href={`${prodLink}/`}>Home</a>
+		</li>
+		<li class="nav__list_item">
+			<a class="link-border" href={`${prodLink}/eatery`}>Restauran&Cafe</a>
+		</li>
+		<li class="nav__list_item">
+			<a class="link-border" href={`${prodLink}/facilities`}>Shop&Facilities</a>
+		</li>
+		<li class="nav__list_item">
+			<a class="link-border" href="https://www.google.com/forms/about/" target="_blank"
+			>Contact</a
+			>
+		</li>
+	</ul>
+</nav>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.nav {
+		width: 100%;
+		@include mq(md) {
+			font-size: 0.875rem;
+		}
+	}
+
+	.nav__list {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@include mq(md) {
+		.nav__list {
+			gap: 35px;
+		}
+		.nav__list_item > a {
+			padding: 13px 10px;
+		}
+	}
+</style>

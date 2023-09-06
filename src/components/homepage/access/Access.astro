@@ -1,0 +1,65 @@
+---
+import AccessMap from '@assets/images/homepage/AccessMap__Desktop.svg';
+import HPArticleWrapper from '@components/ui/HPArticleWrapper.astro';
+import { Image } from 'astro:assets';
+
+import { accessData } from './../datas';
+import AccessItem from './AccessItem.astro';
+import Address from './Address.astro';
+import BusinessHours from './BusinessHours.astro';
+import BusinessWeek from './BusinessWeek.astro';
+---
+
+<article class="access">
+	<HPArticleWrapper title="アクセス">
+		<ul class="access__wrapper_list medium-text">
+			{accessData.map(item => <AccessItem icon={item.icon} text={item.text} />)}
+			<li>
+				<ul class="access__wrapper_nestedList">
+					<Address />
+					<BusinessHours />
+					<BusinessWeek />
+				</ul>
+			</li>
+		</ul>
+	</HPArticleWrapper>
+	<Image
+		class="access__map"
+		src={AccessMap}
+		alt="access map to nayuta"
+		width={100}
+		height={100}
+		format="webp"
+	/>
+</article>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.access__wrapper_list,
+	.access__wrapper_nestedList {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.access__wrapper_list {
+		gap: 32px;
+	}
+
+	.access__wrapper_nestedList {
+		line-height: 2rem;
+		gap: 15px;
+	}
+
+	.access__map {
+		max-width: 850px;
+		margin-top: 30px;
+	}
+
+	@include mq(md) {
+		.access__map {
+			max-width: 850px;
+			margin: 100px auto 0 auto;
+		}
+	}
+</style>

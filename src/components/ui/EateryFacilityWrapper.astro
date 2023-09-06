@@ -1,0 +1,76 @@
+---
+import EateryAddInfo from '@components/eatery/EateryAddInfo.astro';
+import MediaQueryLogo from '@components/react/ui/MediaQueryLogo';
+import ShopSns from '@components/ui/ShopSns.astro';
+import type { TEatery } from '@libs/types';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+	item: TEatery | CollectionEntry<'facilities'>['data'];
+	class?: string;
+};
+
+const { item } = Astro.props;
+const { class: facility, ...attributes } = Astro.props;
+---
+
+<article class:list={['shops small-text', facility]} {...attributes}>
+	<div class="shops__logo">
+		<MediaQueryLogo imgUrl={item.image.url} title={item.title} />
+	</div>
+	<h2 class="shops__title">{item.title}</h2>
+	<div class="shops__sns">
+		<ShopSns item={item as TEatery} />
+	</div>
+	<div class="shop__addInfo">
+		<EateryAddInfo
+			floor={item.floor}
+			dayOff={item.dayOff}
+			businessInfo={item.businessInfo}
+		/>
+	</div>
+	<slot />
+</article>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.shops {
+		display: flex;
+		flex-direction: column;
+		margin-top: 100px;
+	}
+
+	.shops__logo {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 40px;
+	}
+
+	.shops__title {
+		font-size: $__font16;
+	}
+
+	.shops__sns {
+		margin: 60px 0;
+	}
+
+	@include mq(md) {
+		.shops {
+			width: 470px;
+			margin: 230px auto;
+			align-items: center;
+			text-align: center;
+		}
+
+		.shops__sns {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		.shops__logo {
+			margin-bottom: 70px;
+		}
+	}
+</style>

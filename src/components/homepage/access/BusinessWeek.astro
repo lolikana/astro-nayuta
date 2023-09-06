@@ -1,0 +1,51 @@
+---
+import { BusinessWeekData } from './../datas';
+---
+
+<li class="businessWeek">
+	<p>各店舗の営業日程は下記の通りです。</p>
+	<ul class="businessWeek__list">
+		{
+			BusinessWeekData.map(item => (
+				<li class="businessWeek__list_item">
+					<span class="item__day">{item.day}</span>
+					<div class="item__text">
+						{item.text.length === 1 ? (
+							<span>{item.text[0]}</span>
+						) : (
+							item.text.map(text => <span>{text}</span>)
+						)}
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</li>
+
+<style lang="scss">
+	@import '@styles/config';
+	.businessWeek {
+		margin-left: 1rem;
+
+		@include mq(md) {
+			margin-left: 0;
+		}
+	}
+
+	.businessWeek__list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding-left: 1rem;
+	}
+
+	.businessWeek__list_item {
+		display: flex;
+		gap: 1rem;
+
+		.item__text {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+</style>

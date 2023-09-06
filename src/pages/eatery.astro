@@ -1,0 +1,111 @@
+---
+import { getEatery } from '@api/eatery/getEatery';
+import CafeMenu from '@components/eatery/CafeMenu.astro';
+import Dietary from '@components/eatery/Dietary.astro';
+import RestaurantMenu from '@components/eatery/RestaurantMenu.astro';
+import EateryFacilityWrapper from '@components/ui/EateryFacilityWrapper.astro';
+import PageTitle from '@components/ui/PageTitle.astro';
+import Layout from '@layouts/Layout.astro';
+import { cafeMenuData, restaurantMenuData } from '@libs/data';
+
+const response = await getEatery({});
+const contents = response.contents;
+---
+
+<Layout headTitle={'飲食店ご紹介'}>
+	<PageTitle titleJa="飲食店のご紹介" titleEn="introduce eateries" />
+	{
+		contents.map(item => (
+			<EateryFacilityWrapper item={item}>
+				<div class="eatery__dietaries">
+					<Dietary dietaries={item.dietaries} />
+					<div class="eatery__dietaries_vegewel">
+						<a href={item.vegewelUrl} target="_blank">
+							Vegewel掲載ページへ
+						</a>
+					</div>
+					<div class="eatery__dietaries_addInfo">
+						<p class="break-line">{item.addInfo}</p>
+					</div>
+				</div>
+				{item.tableCheckUrl ? (
+					<div class="eatery__tableCheck">
+						<p>席のご予約は以下のボタン（Table Check）より承っております。</p>
+						<a href={item.tableCheckUrl} target="_blank" class="eatery__tableCheck_link">
+							Table Check 予約ページへ
+						</a>
+					</div>
+				) : null}
+				<div class="eatery__menus">
+					{restaurantMenuData.map(restaurant => {
+						if (restaurant.shop === item.title) {
+							return <RestaurantMenu menus={restaurant.menus} />;
+						}
+					})}
+					{cafeMenuData.map(cafe => {
+						if (cafe.shop === item.title) {
+							return <CafeMenu categories={cafe.categories} addInfo={cafe.addInfo} />;
+						}
+					})}
+				</div>
+			</EateryFacilityWrapper>
+		))
+	}
+</Layout>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.eatery__dietaries {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		margin-bottom: 20px;
+
+		@include underline();
+	}
+
+	.eatery__dietaries_vegewel {
+		position: relative;
+		width: fit-content;
+		margin-bottom: 60px;
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 1px;
+			background-color: $__primary;
+			position: absolute;
+			bottom: -0.3rem;
+			left: 0;
+		}
+	}
+
+	.eatery__tableCheck {
+		@include underline();
+	}
+
+	.eatery__tableCheck_link {
+		display: block;
+		width: fit-content;
+		padding: 0.5rem 1rem;
+		margin: 20px 0 0;
+		border: 1px solid $__primary;
+	}
+
+	@include mq(md) {
+		.eatery__dietaries {
+			align-items: center;
+			gap: 40px;
+		}
+
+		.eatery__tableCheck_link {
+			margin: 20px auto 0;
+		}
+
+		.eatery__menus {
+			min-width: 420px;
+			max-width: 520px;
+		}
+	}
+</style>

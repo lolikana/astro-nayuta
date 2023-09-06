@@ -1,0 +1,55 @@
+---
+import InstagramLogo from '@assets/logo/Instagram.svg';
+import MaedaGumiLogo from '@assets/logo/MaedaGumi-Logo_MinchoType.svg';
+import TwitterLogo from '@assets/logo/Twitter.svg';
+import FooterLogo from '@components/ui/FooterLogo.astro';
+---
+
+<footer class="footer small-text">
+	<FooterLogo type="sns" link={'#_blank'} image={InstagramLogo} altImage={'instagram'} />
+	<FooterLogo type="sns" link={'#_blank'} image={TwitterLogo} altImage={'twitter'} />
+	<div>
+		<a
+			href={`${import.meta.env.PROD ? '/astro-nayuta' : ''}/privacy-policy`}
+			class="link-underline">プライバシーポリシー</a
+		>
+	</div>
+	<div>
+		<FooterLogo
+			type="maeda"
+			link={'#_blank'}
+			image={MaedaGumiLogo}
+			altImage={'Maeda-Gumi'}
+		/>
+		<p class="footer__copyright">
+			Copryright <time datetime="2022-01-01"></time> Maedagumi, Inc. All rights reserved.
+		</p>
+	</div>
+</footer>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.footer {
+		padding: 150px 0 30px $__mobile__padding;
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	@include mq(md) {
+		.footer {
+			padding: 200px 0 60px $__desktop__padding;
+		}
+		.footer__copyright {
+			margin-top: 20px;
+		}
+	}
+</style>
+
+<script>
+	const time = document.getElementsByTagName('time')[0] as HTMLTimeElement;
+	const date = new Date();
+	time.setAttribute('datetime', date.toISOString());
+	time.textContent = date.getFullYear().toString();
+</script>

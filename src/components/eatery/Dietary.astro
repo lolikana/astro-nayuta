@@ -1,0 +1,161 @@
+---
+import BubbleSpeech from '@components/ui/BubbleSpeech.astro';
+import type { TEatery } from '@libs/types';
+
+type Props = {
+	dietaries: TEatery['dietaries'];
+};
+
+const createInitial = (text: TEatery['dietaries'][number]): string | void => {
+	switch (text.trim()) {
+		case 'Vegan':
+			return 'VG';
+		case 'Muslim Friendly':
+			return 'MF';
+		case 'Lacto-ovo Vegetarian':
+			return 'LoV';
+		default:
+			'none';
+	}
+};
+
+const { dietaries } = Astro.props;
+---
+
+<div class="dietaries">
+	<ul class="dietaries__list">
+		{
+			dietaries.map(dietary => (
+				<li class="dietaries__list_item">{createInitial(dietary)}</li>
+			))
+		}
+	</ul>
+	<div class="dietaries__info">
+		<button role="contentinfo" class="dietaries__info_btn">?</button>
+		<BubbleSpeech class="bubble__modal">
+			<ul class="dietaries__bubble_list">
+				{
+					dietaries.map(dietary => (
+						<li class="dietaries__bubble_item">
+							<span class="bubble__initial">{createInitial(dietary)}</span>
+							<span>{dietary}</span>
+						</li>
+					))
+				}
+			</ul>
+		</BubbleSpeech>
+	</div>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+	.dietaries,
+	.dietaries__list {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.dietaries__list {
+		font-size: $__font16;
+		&::after {
+			content: '';
+			margin: 0 auto;
+			width: 2rem;
+			height: 1px;
+			background-color: $__primary;
+		}
+	}
+
+	.dietaries__list_item,
+	.dietaries__info_btn {
+		border: 1px solid $__primary;
+	}
+
+	.dietaries__info {
+		position: relative;
+	}
+
+	.dietaries__info_btn {
+		font-size: $__font22;
+		padding: 0.5rem 1rem;
+		border-radius: 50%;
+	}
+
+	.dietaries__list_item,
+	.dietaries__bubble_list {
+		padding: 0.25rem 0.5rem;
+	}
+
+	.dietaries__bubble_list {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+	}
+
+	.dietaries__bubble_item {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		word-wrap: none;
+	}
+
+	.dietaries__bubble_item {
+		.bubble__initial {
+			border: 1px solid $__primary;
+			margin-right: 1rem;
+			padding: 0.25rem 0.5rem;
+		}
+	}
+
+	.bubble__modal {
+		position: absolute;
+		top: 4.3rem;
+		left: -10rem;
+		white-space: nowrap;
+		text-align: start;
+		animation: fadeOut 500ms ease forwards;
+	}
+
+	.bubble__modal.active {
+		animation: fadeIn 500ms ease forwards;
+	}
+
+	@include mq('custom900') {
+		.bubble__modal {
+			top: 0.25rem;
+			left: 5.5rem;
+		}
+	}
+</style>
+
+<script>
+	const htmlSelect = document.querySelector('html') as HTMLElement;
+	const bubbles = document.querySelectorAll('.bubble__modal');
+
+	htmlSelect.addEventListener('click', e => {
+		const target = e.target as HTMLButtonElement;
+
+		const closestBubble = target.nextElementSibling;
+		if (!closestBubble?.classList.contains('active'))
+			bubbles.forEach(bubble => bubble.classList.remove('active'));
+		closestBubble?.classList.toggle('active');
+	});
+
+	if (window.innerWidth < 900) {
+		bubbles.forEach(bubble => bubble.classList.add('top'));
+	} else {
+		bubbles.forEach(bubble => bubble.classList.add('left'));
+	}
+
+	window.addEventListener('resize', () => {
+		if (window.innerWidth < 900) {
+			bubbles.forEach(bubble => bubble.classList.remove('left'));
+			bubbles.forEach(bubble => bubble.classList.add('top'));
+		} else {
+			bubbles.forEach(bubble => bubble.classList.remove('top'));
+			bubbles.forEach(bubble => bubble.classList.add('left'));
+		}
+	});
+</script>

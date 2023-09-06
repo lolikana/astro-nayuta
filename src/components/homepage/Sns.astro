@@ -1,0 +1,55 @@
+---
+import InstagramLogo from '@assets/logo/Instagram.svg';
+import TwitterLogo from '@assets/logo/Twitter.svg';
+import LinkSns from '@components/ui/LinkSns.astro';
+
+import { snsData } from './datas';
+---
+
+<article class="article">
+	<div>
+		<p class="medium-text">最新の情報はSNSにて配信しております。</p>
+		<p>Please check out our social medias for get new notices.</p>
+	</div>
+	<ul class="article__sns">
+		{
+			snsData.map(sns => (
+				<li class="article__sns_item">
+					<LinkSns
+						text={sns.text}
+						link={sns.link}
+						image={sns.text === 'instagram' ? InstagramLogo : TwitterLogo}
+						imageAlt={sns.imageAlt}
+					/>
+				</li>
+			))
+		}
+	</ul>
+</article>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.article {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+	}
+	.article__sns {
+		display: flex;
+		flex-direction: column;
+		gap: 60px;
+	}
+
+	.article__sns_item {
+		position: relative;
+		&:not(:last-child)::after {
+			content: '';
+			width: 25px;
+			height: 1px;
+			background-color: $__primary;
+			position: absolute;
+			bottom: -30px;
+		}
+	}
+</style>

@@ -1,0 +1,72 @@
+---
+type Props = {
+	titleJa: string;
+	titleEn: string;
+};
+
+const { titleJa, titleEn } = Astro.props;
+---
+
+<div class="section__title">
+	<h1 class="section__title_text big-title">
+		<span class="title__nayuta">Nayuta</span>
+		<div class="title__page">
+			<span class="title__page_ja">{titleJa}</span>
+			<span class="title__page_en">{titleEn}</span>
+		</div>
+	</h1>
+</div>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.section__title {
+		&_text {
+			font-size: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 33px;
+
+			.title__page {
+				display: flex;
+				flex-direction: column;
+
+				&_en {
+					font-size: $__font10;
+				}
+			}
+
+			@include mq(md) {
+				flex-direction: row;
+				gap: 0;
+
+				.title__nayuta,
+				.title__page {
+					flex: 1;
+				}
+
+				.title__nayuta {
+					display: flex;
+					align-items: center;
+
+					&::after {
+						content: '';
+						margin: 0 auto;
+						width: 68%;
+						height: 1px;
+						background-color: $__primary;
+					}
+				}
+
+				.title__page {
+					position: relative;
+					&_en {
+						font-size: $__font14;
+						position: absolute;
+						bottom: -1.7rem;
+					}
+				}
+			}
+		}
+	}
+</style>

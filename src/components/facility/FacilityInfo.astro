@@ -1,0 +1,91 @@
+---
+import type { TFacilityInfo } from '@libs/types';
+
+type Props = {
+	data: TFacilityInfo[];
+};
+
+const { data } = Astro.props;
+---
+
+{
+	data.map(info => (
+		<div class="info">
+			<h3 class="info__title">{info.title}</h3>
+			<div class="info__container container-line">
+				<div class="info__container_wrapper">
+					{info.informations.map(information => (
+						<>
+							<h4 class="info__subTitle">{information.subTitle}</h4>
+							<ul class="info__texts">
+								{information.texts.map(text => (
+									<li>{text}</li>
+								))}
+								{information.button && (
+									<li class="info__button">
+										<a href={import.meta.env.PROD ? '/astro-nayuta/' : '/'}>
+											{information.button?.text}
+										</a>
+									</li>
+								)}
+								{information.rules &&
+									information.rules.map(rule => (
+										<li class="info__rules">
+											<span>{rule.limit}</span>
+											<span>{rule.price}</span>
+										</li>
+									))}
+							</ul>
+						</>
+					))}
+				</div>
+			</div>
+		</div>
+	))
+}
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.info:not(:last-child) .info__container {
+		&::after {
+			display: none;
+		}
+	}
+
+	.info__container_wrapper {
+		padding: 1rem 0 40px 0;
+
+		@include mq(md) {
+			padding-bottom: 100px;
+		}
+	}
+
+	.info__subTitle,
+	.info__texts {
+		text-align: start;
+	}
+
+	.info__texts {
+		padding: 0 0 1rem 1rem;
+	}
+
+	.info__button {
+		width: fit-content;
+		margin: 1rem 0;
+
+		a {
+			border: 1px solid $__primary;
+			padding: 0.5rem 2rem;
+		}
+	}
+
+	.info__rules {
+		display: flex;
+		flex-direction: column;
+
+		span:nth-child(2) {
+			align-self: flex-end;
+		}
+	}
+</style>

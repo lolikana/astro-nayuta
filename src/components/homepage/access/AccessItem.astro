@@ -1,0 +1,32 @@
+---
+import CarIcon from '@assets/icons/car__icon.svg';
+import ManIcon from '@assets/icons/walk_man__icon.svg';
+import { Image } from 'astro:assets';
+
+import type { TAccessData } from '../types';
+
+const iconUrl = (icon: TAccessData['icon']): any => {
+	switch (icon) {
+		case 'car':
+			return CarIcon;
+		case 'walk_man':
+			return ManIcon;
+	}
+};
+const { icon, text } = Astro.props as TAccessData;
+---
+
+<li>
+	<Image src={iconUrl(icon)} alt={`${icon}'s icon'`} class="access__item_icon" />
+	<p class="access__item_text">{text}</p>
+</li>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.access__item_icon {
+		width: 45px;
+		max-height: 35px;
+		margin-bottom: 10px;
+	}
+</style>

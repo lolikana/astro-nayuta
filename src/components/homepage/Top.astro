@@ -1,0 +1,105 @@
+---
+import HomepageLandscape from '@assets/images/homepage/main_image.webp';
+import { Image } from 'astro:assets';
+---
+
+<section class="section">
+	<div class="section__title">
+		<h1 class="section__title_text">
+			<span>Nayuta</span><span>“素朴”を届ける空間</span>
+		</h1>
+	</div>
+	<div class="section__image">
+		<Image
+			class="section__image_img"
+			src={HomepageLandscape}
+			alt="Home page image of nature"
+			fetchpriority={'high'}
+			width={2000}
+			height={645}
+		/>
+		<div class="section__image_scroll small-text"></div>
+	</div>
+</section>
+
+<style lang="scss">
+	@import '@styles/config';
+
+	.section {
+		height: calc(100vh - ($__mobile__headerHeight + $__header__paddingBottom));
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include mq(md) {
+			height: calc(100vh - ($__desktop__headerHeight + $__header__paddingBottom));
+		}
+	}
+
+	.section__title {
+		&_text {
+			font-size: 1rem;
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+
+			@include mq(md) {
+				flex-direction: row;
+				gap: 0;
+
+				span {
+					flex: 1;
+				}
+
+				span:nth-child(1) {
+					display: flex;
+					align-items: center;
+
+					&::after {
+						content: '';
+						margin: 0 auto;
+						width: 70%;
+						height: 1px;
+						background-color: $__primary;
+					}
+				}
+			}
+		}
+	}
+
+	.section__image {
+		position: relative;
+		margin: 0 calc(50% - 50vw);
+		flex: 1;
+
+		// animation: 3s linear forwards opacityAnimation;
+	}
+
+	.section__image_img {
+		position: absolute;
+		min-height: 30vh;
+		max-height: 50vh;
+		object-fit: cover;
+		object-position: 70% 50%;
+		bottom: 3.4rem;
+	}
+
+	.section__image_scroll {
+		position: absolute;
+		left: 50%;
+		bottom: 1rem;
+		&::after {
+			content: 'scroll';
+			margin-left: 1rem;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			height: 50px;
+			width: 1px;
+			background-color: $__main;
+			top: -0.75rem;
+			animation: 2s linear infinite lineAnimation;
+		}
+	}
+</style>

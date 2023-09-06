@@ -1,0 +1,37 @@
+---
+import type { TEatery } from '@libs/types';
+
+type Props = {
+	floor: TEatery['floor'];
+	dayOff: TEatery['dayOff'];
+	businessInfo: TEatery['businessInfo'];
+};
+
+const { floor, dayOff, businessInfo } = Astro.props;
+---
+
+<p class="floor">{floor}</p>
+{
+	dayOff.length !== 0 || businessInfo ? (
+		<div class="business">
+			{dayOff.length !== 0 ? <p class="business__dayOff">毎週{dayOff}曜日 定休</p> : null}
+			{businessInfo ? <p class="business__info break-line">{businessInfo}</p> : null}
+		</div>
+	) : null
+}
+
+<style lang="scss">
+	@import '@styles/config';
+	.floor,
+	.business {
+		@include underline();
+	}
+
+	.business__dayOff {
+		font-size: $__font14;
+	}
+
+	.business__info {
+		font-size: $__font12;
+	}
+</style>
